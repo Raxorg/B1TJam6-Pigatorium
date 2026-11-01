@@ -1,17 +1,24 @@
 package com.jammers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TimerAndSacrificesDemo extends ScreenAdapter {
 
     private Timer timer;
     private Sacrifices sacrifices;
+    private SpriteBatch batch;
+    private BitmapFont font;
     private final float REQUIRED_FAVOR = 100f; // Favor needed for Heaven
 
     @Override
     public void show() {
         timer = new Timer(60f); // 60 seconds game timer
         sacrifices = new Sacrifices();
+        batch = new SpriteBatch();
+        font = new BitmapFont(); // Default libGDX font
     }
 
     @Override
@@ -30,9 +37,20 @@ public class TimerAndSacrificesDemo extends ScreenAdapter {
             return;
         }
 
+        // 2. Render timer on screen
+        batch.begin();
+        timer.draw(batch, font, 50, Gdx.graphics.getHeight() - 50);
+        batch.end();
+
         // Example player interacting with a shrine:
         // if (Gdx.input.isKeyJustPressed(Input.Keys.E)) {
-        //     sacrifices.sacrifice("Gold Coin", 10f);
+        //     sacrifices.sacrifice("Gold Coin", 10);
         // }
+    }
+
+    @Override
+    public void dispose() {
+        if (batch != null) batch.dispose();
+        if (font != null) font.dispose();
     }
 }

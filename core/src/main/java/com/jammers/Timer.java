@@ -1,5 +1,8 @@
 package com.jammers;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 /**
  * Handles the game timer, win/lose conditions, and divine judgment upon expiration.
  */
@@ -80,5 +83,15 @@ public class Timer {
 
     public JudgmentResult getJudgmentResult() {
         return judgmentResult;
+    }
+
+    /**
+     * Renders the remaining time on screen using the provided SpriteBatch and BitmapFont.
+     */
+    public void draw(SpriteBatch batch, BitmapFont font, float x, float y) {
+        int minutes = (int) (timeRemaining / 60);
+        int seconds = (int) (timeRemaining % 60);
+        String timeText = String.format("Time: %02d:%02d", minutes, seconds);
+        font.draw(batch, timeText, x, y);
     }
 }
