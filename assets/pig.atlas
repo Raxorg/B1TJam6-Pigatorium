@@ -1,0 +1,70 @@
+pig.png
+size: 108, 117
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+pma: false
+pig1
+  bounds: 1, 58, 28, 34
+  offsets: 18, 15, 64, 64
+  rotate: 90
+pig2
+  bounds: 37, 58, 28, 34
+  offsets: 18, 16, 64, 64
+  rotate: 90
+pig3
+  bounds: 1, 58, 28, 34
+  offsets: 18, 15, 64, 64
+  rotate: 90
+pig4
+  bounds: 73, 58, 28, 34
+  offsets: 18, 16, 64, 64
+  rotate: 90
+pig5
+  bounds: 1, 88, 28, 34
+  offsets: 20, 15, 64, 64
+  rotate: 90
+pig6
+  bounds: 37, 88, 28, 34
+  offsets: 20, 16, 64, 64
+  rotate: 90
+pig7
+  bounds: 1, 88, 28, 34
+  offsets: 20, 15, 64, 64
+  rotate: 90
+pig8
+  bounds: 73, 88, 28, 34
+  offsets: 20, 16, 64, 64
+  rotate: 90
+pig9
+  bounds: 36, 29, 27, 34
+  offsets: 19, 15, 64, 64
+  rotate: 90
+pig10
+  bounds: 1, 1, 26, 33
+  offsets: 19, 17, 64, 64
+  rotate: 90
+pig11
+  bounds: 36, 29, 27, 34
+  offsets: 19, 15, 64, 64
+  rotate: 90
+pig12
+  bounds: 36, 1, 26, 33
+  offsets: 19, 17, 64, 64
+  rotate: 90
+pig13
+  bounds: 72, 29, 27, 34
+  offsets: 19, 15, 64, 64
+  rotate: 90
+pig14
+  bounds: 71, 1, 26, 33
+  offsets: 19, 17, 64, 64
+  rotate: 90
+pig15
+  bounds: 72, 29, 27, 34
+  offsets: 19, 15, 64, 64
+  rotate: 90
+pig16
+  bounds: 1, 29, 26, 33
+  offsets: 19, 17, 64, 64
+  rotate: 90
