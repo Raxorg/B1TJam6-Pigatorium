@@ -1,11 +1,11 @@
 package com.jammers;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class TimerAndSacrificesDemo extends ScreenAdapter {
+public class TimerAndSacrificesDemo extends ApplicationAdapter {
 
     private Timer timer;
     private Sacrifices sacrifices;
@@ -14,7 +14,7 @@ public class TimerAndSacrificesDemo extends ScreenAdapter {
     private final float REQUIRED_FAVOR = 100f; // Favor needed for Heaven
 
     @Override
-    public void show() {
+    public void create() {
         timer = new Timer(60f); // 60 seconds game timer
         sacrifices = new Sacrifices();
         batch = new SpriteBatch();
@@ -22,9 +22,9 @@ public class TimerAndSacrificesDemo extends ScreenAdapter {
     }
 
     @Override
-    public void render(float delta) {
+    public void render() {
         // 1. Update timer (passing sacrifices and threshold)
-        timer.update(delta, sacrifices, REQUIRED_FAVOR);
+        timer.update(Gdx.graphics.getDeltaTime(), sacrifices, REQUIRED_FAVOR);
 
         if (timer.isExpired()) {
             // Timer ran out! Check judgment result
