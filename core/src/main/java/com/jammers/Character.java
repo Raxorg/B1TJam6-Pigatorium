@@ -2,10 +2,22 @@ package com.jammers;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 
 public class Character
 {
     private float x = 0, y = 0, width = 10, height = 10;
+    Vector2 velocity = new Vector2();
+
+    public Vector2 getVelocity()
+    {
+        return velocity;
+    }
+
+    public void setVelocity(Vector2 velocity2)
+    {
+        this.velocity = velocity2;
+    }
 
     public float getWidth()
     {
