@@ -1,0 +1,55 @@
+package com.jammers.testing.stuff;
+
+import static com.jammers.testing.Constants.GAME_HEIGHT;
+import static com.jammers.testing.Constants.GAME_WIDTH;
+import static com.jammers.testing.stuff.Direction.LEFT;
+import static com.jammers.testing.stuff.Direction.RIGHT;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.utils.Array;
+import com.jammers.testing.Assets;
+import com.jammers.testing.Pig;
+
+public class Stuff {
+
+    private final Pig pig;
+    private final Array<Room> rooms;
+    private final Room currentRoom;
+    private final Text timerText;
+
+    public Stuff(Assets assets) {
+        pig = new Pig(assets.getAtlasSprites());
+        rooms = new Array<>();
+
+        Item[] shrineItems = new Item[]{
+            new Item(assets.getBook())
+        };
+
+        RoomData shrineRoomData = new RoomData("The Shrine Room", assets.getShrine(), shrineItems);
+        RoomData churchRoomData = new RoomData("The Church", assets.getChurch(), new Item[0]);
+        shrineRoomData.connectRoom(LEFT, churchRoomData);
+        churchRoomData.connectRoom(RIGHT, shrineRoomData);
+        currentRoom = new Room(shrineRoomData);
+
+        timerText = new Text(assets.getTimerFont());
+        timerText.setX(GAME_WIDTH * 0.5f - 40f);
+        timerText.setY(GAME_HEIGHT - 10f);
+    }
+
+    public Pig getPig() {
+        return pig;
+    }
+
+    public Array<Room> getRooms() {
+        return rooms;
+    }
+
+    public Room getRoom() {
+        return currentRoom;
+    }
+
+    public Text getTimerText() {
+        return timerText;
+    }
+}

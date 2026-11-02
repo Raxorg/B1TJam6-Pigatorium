@@ -1,0 +1,50 @@
+package com.jammers.testing.stuff;
+
+import static com.jammers.testing.Constants.GAME_HEIGHT;
+import static com.jammers.testing.Constants.GAME_WIDTH;
+
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.DelayedRemovalArray;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public final class RoomData {
+
+    private final String name;
+    private final Sprite background;
+    private final DelayedRemovalArray<Item> items;
+    private final Map<Direction, RoomData> roomMap;
+
+    public RoomData(String roomName, Sprite backgroundSprite, Item[] roomItems) {
+        name = roomName;
+        background = new Sprite(backgroundSprite);
+        background.setPosition(
+            (GAME_WIDTH - background.getWidth()) * 0.5f,
+            (GAME_HEIGHT - background.getHeight()) * 0.5f
+        );
+        items = new DelayedRemovalArray<>();
+        items.addAll(roomItems);
+        roomMap = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Sprite getBackground() {
+        return background;
+    }
+
+    public DelayedRemovalArray<Item> getItems() {
+        return items;
+    }
+
+    public void connectRoom(Direction direction, RoomData room) {
+        roomMap.put(direction, room);
+    }
+
+    public RoomData getConnectedRoom(Direction direction) {
+        return roomMap.get(direction);
+    }
+}

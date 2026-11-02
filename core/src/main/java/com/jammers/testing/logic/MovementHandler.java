@@ -1,20 +1,22 @@
-package com.jammers.temp;
+package com.jammers.testing.logic;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
+import com.jammers.testing.Pig;
+import com.jammers.testing.stuff.Stuff;
 
-public class SpriteMovement {
+public class MovementHandler {
 
     private final Vector2 velocity = new Vector2(0, 0);
-    private final SpriteCharacter character;
+    private final Pig pig;
 
     private static final float MAX_SPEED = 400f;
     private static final float ACCELERATION = 1500f;
     private static final float FRICTION = 1200f;
 
-    public SpriteMovement(SpriteCharacter character) {
-        this.character = character;
+    public MovementHandler(Stuff stuff) {
+        this.pig = stuff.getPig();
     }
 
     public void update(float delta) {
@@ -48,9 +50,9 @@ public class SpriteMovement {
         velocity.clamp(0f, MAX_SPEED);
 
         // Move character
-        character.translate(velocity.x * delta, velocity.y * delta);
+        pig.translate(velocity.x * delta, velocity.y * delta);
 
         // Update character animation with input directions
-        character.update(delta, moveX, moveY);
+        pig.update(delta, moveX, moveY);
     }
 }

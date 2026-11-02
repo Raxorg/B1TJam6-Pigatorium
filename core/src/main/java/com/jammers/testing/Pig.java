@@ -1,14 +1,11 @@
-package com.jammers.temp;
+package com.jammers.testing;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.jammers.testing.stuff.Direction;
 
-public class SpriteCharacter {
-
-    public enum Direction {
-        RIGHT, LEFT, UP, DOWN
-    }
+public class Pig {
 
     private final Sprite sprite;
     private final Animation<Sprite> walkingRight;
@@ -19,7 +16,7 @@ public class SpriteCharacter {
     private float animTime = 0f;
     private Direction currentDirection = Direction.RIGHT;
 
-    public SpriteCharacter(Sprite[] sprites) {
+    public Pig(Sprite[] sprites) {
         sprite = new Sprite();
 
         walkingRight = new Animation<>(0.1f, sprites[0], sprites[1], sprites[2], sprites[3]);

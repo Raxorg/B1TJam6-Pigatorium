@@ -1,0 +1,61 @@
+package com.jammers.testing;
+
+import static com.jammers.testing.Constants.CLEAR_COLOR;
+
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.jammers.testing.logic.Logic;
+import com.jammers.testing.stuff.Stuff;
+
+public class Game extends ApplicationAdapter {
+
+    private OrthographicCamera camera;
+    private ExtendViewport viewport;
+    private SpriteBatch spriteBatch;
+
+    private Assets assets;
+    private Stuff stuff;
+    private Logic logic;
+
+    @Override
+    public void create() {
+        camera = new OrthographicCamera();
+        viewport = new ExtendViewport(480, 480, camera);
+        spriteBatch = new SpriteBatch();
+        assets = new Assets();
+        stuff = new Stuff(assets);
+        logic = new Logic(stuff);
+    }
+
+    @Override
+    public void render() {
+        logic.update(Gdx.graphics.getDeltaTime());
+        renderGame();
+    }
+
+    private void renderGame() {
+        ScreenUtils.clear(CLEAR_COLOR);
+        viewport.apply();
+        spriteBatch.setProjectionMatrix(camera.combined);
+
+        spriteBatch.begin();
+        stuff.getRoom().draw(spriteBatch);
+        stuff.getPig().draw(spriteBatch);
+        stuff.getTimerText().draw(spriteBatch);
+        spriteBatch.end();
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        viewport.update(width, height, true);
+    }
+
+    @Override
+    public void dispose() {
+        assets.dispose();
+    }
+}

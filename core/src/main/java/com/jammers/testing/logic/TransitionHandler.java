@@ -1,33 +1,43 @@
-package com.jammers;
+package com.jammers.testing.logic;
+
+import static com.jammers.testing.Constants.GAME_WIDTH;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jammers.rooms.Room;
+import com.jammers.testing.Pig;
+import com.jammers.testing.stuff.Direction;
+import com.jammers.testing.stuff.Room;
+import com.jammers.testing.stuff.RoomData;
+import com.jammers.testing.stuff.Stuff;
 
-public class Transition {
+public class TransitionHandler {
 
     private final Sprite sprite;
     private float alpha = 0f;
     private static final float DURATION = 0.5f;
     private boolean isTransitioning = false;
     private boolean fadingOut = true;
-    private Room nextRoom;
-    private Listener<Room> roomListener;
+    private RoomData nextRoomData;
+    private final Room room;
+    private final Pig pig;
+    private Direction transitionDirection;
 
-    public Transition() {
+    public TransitionHandler(Stuff stuff) {
         sprite = new Sprite(new Texture("pixel.png"));
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        room = stuff.getRoom();
+        pig = stuff.getPig();
     }
 
-    public void start(Room nextRoom, Listener<Room> fadeListener) {
+    public void start(RoomData nextRoomData, Direction transitionDirection) {
         if (isTransitioning) return;
         this.isTransitioning = true;
         this.fadingOut = true;
         this.alpha = 0f;
-        this.nextRoom = nextRoom;
-        this.roomListener = fadeListener;
+        this.nextRoomData = nextRoomData;
+        this.transitionDirection = transitionDirection;
     }
 
     public void update(float delta) {
@@ -38,8 +48,7 @@ public class Transition {
             if (alpha >= 1f) {
                 alpha = 1f;
                 fadingOut = false;
-                // position
-                roomListener.trigger(nextRoom);
+                setupRoom();
             }
         } else {
             alpha -= delta / DURATION;
@@ -47,6 +56,18 @@ public class Transition {
                 alpha = 0f;
                 isTransitioning = false;
             }
+        }
+    }
+
+    private void setupRoom() {
+        room.set(nextRoomData);
+        switch (transitionDirection) {
+            case LEFT:
+                pig.setX(GAME_WIDTH - pig.getWidth());
+                break;
+            case RIGHT:
+                pig.setX(0f);
+                break;
         }
     }
 
