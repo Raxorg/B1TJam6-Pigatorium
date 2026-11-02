@@ -1,9 +1,11 @@
-package com.jammers;
+package com.jammers.demos;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.jammers.Sacrifices;
+import com.jammers.Timer;
 
 public class TimerAndSacrificesDemo extends ApplicationAdapter {
 
