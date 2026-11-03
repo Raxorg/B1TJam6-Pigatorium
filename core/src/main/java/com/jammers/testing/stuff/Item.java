@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class Item {
 
     private final Sprite sprite;
+    public final int value;
 
-    public Item(Sprite sprite) {
+    public Item(Sprite sprite, int value) {
         this.sprite = sprite;
+        this.value = value;
     }
 
     public void draw(SpriteBatch spriteBatch) {

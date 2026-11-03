@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 public class Assets {
 
     private final Sprite[] atlasSprites;
-    private final Sprite shrine, church;
+    private final Sprite shrine, shrineActive, church;
     private final Sprite book;
     private final BitmapFont timerFont;
     private final Sound pickUpSound, putDownSound;
@@ -20,6 +20,7 @@ public class Assets {
         atlasSprites = pigAtlas.createSprites().items;
 
         shrine = new Sprite(new Texture("raw/shrine-2.png"));
+        shrineActive = new Sprite(new Texture("raw/shrineActive.png"));
         church = new Sprite(new Texture("raw/church.png"));
 
         TextureAtlas itemAtlas = new TextureAtlas("sprites/32x32/items/items.atlas");
@@ -37,6 +38,10 @@ public class Assets {
 
     public Sprite getShrine() {
         return shrine;
+    }
+
+    public Sprite getShrineActive() {
+        return shrineActive;
     }
 
     public Sprite getChurch() {
@@ -62,6 +67,7 @@ public class Assets {
     public void dispose() {
         atlasSprites[0].getTexture().dispose();
         shrine.getTexture().dispose();
+        shrineActive.getTexture().dispose();
         church.getTexture().dispose();
         book.getTexture().dispose();
         timerFont.dispose();
