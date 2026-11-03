@@ -10,14 +10,17 @@ public class Logic {
     private final MovementHandler movementHandler;
     private final TimerHandler timerHandler;
     private final ItemHandler itemHandler;
+    private final ShrineHandler shrineHandler;
 
     public Logic(Assets assets, Stuff stuff) {
         EndingHandler endingHandler = new EndingHandler();
+        SacrificeHandler sacrificeHandler = new SacrificeHandler();
         transitionHandler = new TransitionHandler(stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
         movementHandler = new MovementHandler(stuff);
         timerHandler = new TimerHandler(endingHandler, stuff);
-        itemHandler = new ItemHandler(assets, stuff);
+        shrineHandler = new ShrineHandler(sacrificeHandler, assets, stuff);
+        itemHandler = new ItemHandler(shrineHandler, assets, stuff);
     }
 
     public void update(float delta) {
@@ -26,5 +29,6 @@ public class Logic {
         transitionHandler.update(delta);
         timerHandler.update(delta);
         itemHandler.update();
+        shrineHandler.update();
     }
 }

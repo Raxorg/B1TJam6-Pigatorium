@@ -10,6 +10,7 @@ import com.jammers.testing.Assets;
 public class Stuff {
 
     private final Pig pig;
+    private final RoomData shrineRoomData;
     private final Room currentRoom;
     private final Text timerText;
 
@@ -17,11 +18,11 @@ public class Stuff {
         pig = new Pig(assets.getAtlasSprites());
 
         Item[] shrineItems = new Item[]{
-            new Item(assets.getBook())
+            new Item(assets.getBook(), 10)
         };
         shrineItems[0].setPosition(240f, 200f);
 
-        RoomData shrineRoomData = new RoomData("The Shrine Room", assets.getShrine(), shrineItems);
+        shrineRoomData = new RoomData("The Shrine Room", assets.getShrine(), shrineItems);
         RoomData churchRoomData = new RoomData("The Church", assets.getChurch(), new Item[0]);
         shrineRoomData.connectRoom(LEFT, churchRoomData);
         churchRoomData.connectRoom(RIGHT, shrineRoomData);
@@ -34,6 +35,10 @@ public class Stuff {
 
     public Pig getPig() {
         return pig;
+    }
+
+    public RoomData getShrineRoomData() {
+        return shrineRoomData;
     }
 
     public Room getRoom() {

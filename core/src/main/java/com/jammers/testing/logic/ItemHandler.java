@@ -13,13 +13,15 @@ import com.jammers.testing.stuff.Stuff;
 
 public class ItemHandler {
 
+    private final ShrineHandler shrineHandler;
     private final Room room;
     private final Pig pig;
     private final Sound pickUpSound, putDownSound;
 
     private static final float INTERACTION_DISTANCE = 50f;
 
-    public ItemHandler(Assets assets, Stuff stuff) {
+    public ItemHandler(ShrineHandler shrineHandler, Assets assets, Stuff stuff) {
+        this.shrineHandler = shrineHandler;
         room = stuff.getRoom();
         pig = stuff.getPig();
         pickUpSound = assets.getPickUpSound();
@@ -61,9 +63,11 @@ public class ItemHandler {
             }
         } else {
             // Drop the held item at pig's position
-            pig.getHeldItem().setPosition(pig.getX(), pig.getY());
+            Item helditem = pig.getHeldItem();
+            helditem.setPosition(pig.getX(), pig.getY());
             pig.setHeldItem(null);
             putDownSound.play();
+            shrineHandler.itemDropped(helditem);
         }
     }
 
