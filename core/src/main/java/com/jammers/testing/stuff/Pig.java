@@ -14,6 +14,7 @@ public class Pig {
 
     private float animTime = 0f;
     private Direction currentDirection = Direction.RIGHT;
+    private Item heldItem;
 
     public Pig(Sprite[] sprites) {
         sprite = new Sprite();
@@ -108,5 +109,13 @@ public class Pig {
 
     public float getHeight() {
         return sprite.getHeight();
+    }
+
+    public Item getHeldItem() {
+        return heldItem;
+    }
+
+    public void setHeldItem(Item heldItem) {
+        this.heldItem = heldItem;
     }
 }

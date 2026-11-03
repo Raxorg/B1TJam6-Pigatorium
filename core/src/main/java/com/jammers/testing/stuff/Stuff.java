@@ -5,23 +5,21 @@ import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.stuff.Direction.LEFT;
 import static com.jammers.testing.stuff.Direction.RIGHT;
 
-import com.badlogic.gdx.utils.Array;
 import com.jammers.testing.Assets;
 
 public class Stuff {
 
     private final Pig pig;
-    private final Array<Room> rooms;
     private final Room currentRoom;
     private final Text timerText;
 
     public Stuff(Assets assets) {
         pig = new Pig(assets.getAtlasSprites());
-        rooms = new Array<>();
 
         Item[] shrineItems = new Item[]{
             new Item(assets.getBook())
         };
+        shrineItems[0].setPosition(240f, 200f);
 
         RoomData shrineRoomData = new RoomData("The Shrine Room", assets.getShrine(), shrineItems);
         RoomData churchRoomData = new RoomData("The Church", assets.getChurch(), new Item[0]);
@@ -36,10 +34,6 @@ public class Stuff {
 
     public Pig getPig() {
         return pig;
-    }
-
-    public Array<Room> getRooms() {
-        return rooms;
     }
 
     public Room getRoom() {

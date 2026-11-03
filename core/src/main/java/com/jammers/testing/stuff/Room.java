@@ -1,6 +1,7 @@
 package com.jammers.testing.stuff;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.DelayedRemovalArray;
 
 public class Room {
 
@@ -27,5 +28,9 @@ public class Room {
 
     public RoomData getConnectedRoom(Direction direction) {
         return roomData.getConnectedRoom(direction);
+    }
+
+    public DelayedRemovalArray<Item> getItems() {
+        return roomData.getItems();
     }
 }
