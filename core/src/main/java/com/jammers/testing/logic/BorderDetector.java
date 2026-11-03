@@ -4,7 +4,7 @@ import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.stuff.Direction.LEFT;
 import static com.jammers.testing.stuff.Direction.RIGHT;
 
-import com.jammers.testing.Pig;
+import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Room;
 import com.jammers.testing.stuff.RoomData;
 import com.jammers.testing.stuff.Stuff;

@@ -1,9 +1,8 @@
-package com.jammers.testing;
+package com.jammers.testing.stuff;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jammers.testing.stuff.Direction;
 
 public class Pig {
 

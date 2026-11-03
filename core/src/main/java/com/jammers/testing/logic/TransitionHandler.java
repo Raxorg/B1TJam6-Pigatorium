@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jammers.testing.Pig;
+import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Direction;
 import com.jammers.testing.stuff.Room;
 import com.jammers.testing.stuff.RoomData;

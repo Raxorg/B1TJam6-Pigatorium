@@ -5,11 +5,8 @@ import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.stuff.Direction.LEFT;
 import static com.jammers.testing.stuff.Direction.RIGHT;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.Array;
 import com.jammers.testing.Assets;
-import com.jammers.testing.Pig;
 
 public class Stuff {
 
