@@ -14,7 +14,7 @@ public class Logic {
 
     public Logic(Assets assets, Stuff stuff) {
         EndingHandler endingHandler = new EndingHandler();
-        SacrificeHandler sacrificeHandler = new SacrificeHandler();
+        SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff);
         transitionHandler = new TransitionHandler(stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
         movementHandler = new MovementHandler(stuff);
