@@ -1,0 +1,9 @@
+{
+  "items": [
+    {
+      "name": "A Dice",
+      "sprite": "dice",
+      "value": 0
+    }
+  ]
+}
