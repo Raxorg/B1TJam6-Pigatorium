@@ -13,7 +13,7 @@ public class Constants {
     public static final float DIALOG_X = 4f;
     public static final float DIALOG_Y = 4f;
     public static final float DIALOG_WIDTH = GAME_WIDTH - 10f;
-    public static final float DIALOG_HEIGHT = 70f;
+    public static final float DIALOG_HEIGHT = 60f;
     public static final float DIALOG_THICKNESS = 2.5f;
 
     public static final float DIALOG_LABEL_BG_HEIGHT = 20f;
@@ -21,4 +21,6 @@ public class Constants {
     public static final float DIALOG_LABEL_BG_Y = DIALOG_Y + DIALOG_HEIGHT - DIALOG_LABEL_BG_HEIGHT * 0.5f - DIALOG_THICKNESS * 0.5f;
     public static final float DIALOG_LABEL_X = DIALOG_LABEL_BG_X + 5f;
     public static final float DIALOG_LABEL_Y = DIALOG_LABEL_BG_Y + DIALOG_LABEL_BG_HEIGHT * 0.5f;
+    public static final float DIALOG_TEXT_X = DIALOG_LABEL_X;
+    public static final float DIALOG_TEXT_Y = DIALOG_Y + DIALOG_HEIGHT * 0.5f;
 }

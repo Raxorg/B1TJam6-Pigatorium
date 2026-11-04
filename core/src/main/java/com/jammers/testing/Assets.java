@@ -12,7 +12,7 @@ public class Assets {
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church;
     private final Sprite book;
-    private final Sprite pixel;
+    private final Sprite pixel, god;
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound;
 
@@ -28,6 +28,7 @@ public class Assets {
         book = itemAtlas.createSprite("book");
 
         pixel = new Sprite(new Texture("pixel.png"));
+        god = new Sprite(new Texture("god.png"));
 
         determination = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
 
@@ -59,6 +60,10 @@ public class Assets {
         return pixel;
     }
 
+    public Sprite getGod() {
+        return god;
+    }
+
     public BitmapFont getDetermination() {
         return determination;
     }
@@ -78,6 +83,7 @@ public class Assets {
         church.getTexture().dispose();
         book.getTexture().dispose();
         pixel.getTexture().dispose();
+        god.getTexture().dispose();
         determination.dispose();
         pickUpSound.dispose();
         putDownSound.dispose();

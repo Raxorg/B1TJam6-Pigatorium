@@ -33,7 +33,7 @@ public class Stuff {
         timerText.setX(GAME_WIDTH * 0.5f - 40f);
         timerText.setY(GAME_HEIGHT - 10f);
 
-        dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getPixel()); // todo send a character sprite
+        dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getGod());
     }
 
     public Pig getPig() {

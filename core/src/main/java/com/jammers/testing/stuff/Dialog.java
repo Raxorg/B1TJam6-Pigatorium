@@ -3,10 +3,13 @@ package com.jammers.testing.stuff;
 import static com.badlogic.gdx.graphics.Color.CLEAR;
 import static com.jammers.testing.Constants.DARK_COLOR;
 import static com.jammers.testing.Constants.DIALOG_HEIGHT;
+import static com.jammers.testing.Constants.DIALOG_LABEL_BG_HEIGHT;
 import static com.jammers.testing.Constants.DIALOG_LABEL_BG_X;
 import static com.jammers.testing.Constants.DIALOG_LABEL_BG_Y;
 import static com.jammers.testing.Constants.DIALOG_LABEL_X;
 import static com.jammers.testing.Constants.DIALOG_LABEL_Y;
+import static com.jammers.testing.Constants.DIALOG_TEXT_X;
+import static com.jammers.testing.Constants.DIALOG_TEXT_Y;
 import static com.jammers.testing.Constants.DIALOG_THICKNESS;
 import static com.jammers.testing.Constants.DIALOG_WIDTH;
 import static com.jammers.testing.Constants.DIALOG_X;
@@ -40,12 +43,16 @@ public class Dialog {
 
         labelBackground = new Sprite(pixel);
         labelBackground.setPosition(DIALOG_LABEL_BG_X, DIALOG_LABEL_BG_Y);
-        labelBackground.setSize(label.getWidth() + 10f, 20f);
+        labelBackground.setSize(label.getWidth() + 10f, DIALOG_LABEL_BG_HEIGHT);
         labelBackground.setColor(DARK_COLOR);
 
-        text = new Text(font);
+        text = new Text(font, "Place your offerings within the circle, and I shall judge their worth.");
+        text.setPosition(DIALOG_TEXT_X, DIALOG_TEXT_Y);
+        text.setColor(LIGHT_COLOR);
+        text.setVerticallyCentered(true);
 
         character = new Sprite(characterSprite);
+        character.setPosition(DIALOG_X + DIALOG_WIDTH - character.getWidth() - 10f, DIALOG_Y + DIALOG_HEIGHT);
     }
 
     public void draw(SpriteBatch spriteBatch) {
