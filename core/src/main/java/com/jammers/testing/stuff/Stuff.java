@@ -14,6 +14,7 @@ public class Stuff {
     private final Room currentRoom;
     private final Text timerText;
     private final Dialog dialog;
+    private final JudgementScreen judgementScreen;
 
     public Stuff(Assets assets) {
         pig = new Pig(assets.getAtlasSprites());
@@ -34,6 +35,7 @@ public class Stuff {
         timerText.setY(GAME_HEIGHT - 10f);
 
         dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getGod());
+        judgementScreen = new JudgementScreen(assets);
     }
 
     public Pig getPig() {
@@ -54,5 +56,9 @@ public class Stuff {
 
     public Dialog getDialog() {
         return dialog;
+    }
+
+    public JudgementScreen getJudgementScreen() {
+        return judgementScreen;
     }
 }

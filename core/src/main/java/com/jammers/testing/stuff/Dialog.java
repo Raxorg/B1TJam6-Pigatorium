@@ -83,6 +83,15 @@ public class Dialog {
         character.setColor(WHITE);
     }
 
+    public void showSimple() {
+        outline.setColor(LIGHT_COLOR);
+        background.setColor(DARK_COLOR);
+        labelBackground.setColor(CLEAR);
+        label.setColor(CLEAR);
+        text.setColor(LIGHT_COLOR);
+        character.setColor(CLEAR);
+    }
+
     public void hide() {
         outline.setColor(CLEAR);
         background.setColor(CLEAR);
@@ -90,5 +99,15 @@ public class Dialog {
         label.setColor(CLEAR);
         text.setColor(CLEAR);
         character.setColor(CLEAR);
+    }
+
+    public void setY(float y) {
+        float translation = y - outline.getY();
+        outline.translateY(translation);
+        background.translateY(translation);
+        labelBackground.translateY(translation);
+        label.translateY(translation);
+        text.translateY(translation);
+        character.translateY(translation);
     }
 }

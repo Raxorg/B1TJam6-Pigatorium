@@ -5,13 +5,13 @@ import com.jammers.testing.stuff.Text;
 
 public class TimerHandler {
 
-    private final EndingHandler endingHandler;
+    private final JudgementHandler judgementHandler;
     private final Text timerText;
     private float timeRemaining; // In seconds
     private boolean running;
 
-    public TimerHandler(EndingHandler endingHandler, Stuff stuff) {
-        this.endingHandler = endingHandler;
+    public TimerHandler(JudgementHandler judgementHandler, Stuff stuff) {
+        this.judgementHandler = judgementHandler;
         timerText = stuff.getTimerText();
         timeRemaining = 180f;
         running = true;
@@ -25,8 +25,12 @@ public class TimerHandler {
         int seconds = (int) (timeRemaining % 60);
         timerText.setText(String.format("Time: %02d:%02d", minutes, seconds));
         if (timeRemaining == 0f) {
-            endingHandler.end();
+            judgementHandler.end();
             running = false;
         }
+    }
+
+    public void setTimeRemaining(float time) {
+        timeRemaining = time;
     }
 }

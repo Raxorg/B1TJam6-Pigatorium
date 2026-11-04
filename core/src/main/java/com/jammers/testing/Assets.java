@@ -12,9 +12,10 @@ public class Assets {
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church;
     private final Sprite book;
-    private final Sprite pixel, god;
+    private final Sprite pixel, god, god2;
+    private final Sprite judgement;
     private final BitmapFont determination;
-    private final Sound pickUpSound, putDownSound;
+    private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
 
     public Assets() {
         TextureAtlas pigAtlas = new TextureAtlas("pig.atlas");
@@ -29,11 +30,15 @@ public class Assets {
 
         pixel = new Sprite(new Texture("pixel.png"));
         god = new Sprite(new Texture("god.png"));
+        god2 = new Sprite(new Texture("god2.png"));
+
+        judgement = new Sprite(new Texture("raw/judgement.png"));
 
         determination = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
 
         pickUpSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/pickUp.ogg"));
         putDownSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/putDown.ogg"));
+        deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
     }
 
     public Sprite[] getAtlasSprites() {
@@ -64,6 +69,14 @@ public class Assets {
         return god;
     }
 
+    public Sprite getGod2() {
+        return god2;
+    }
+
+    public Sprite getJudgement() {
+        return judgement;
+    }
+
     public BitmapFont getDetermination() {
         return determination;
     }
@@ -76,6 +89,10 @@ public class Assets {
         return putDownSound;
     }
 
+    public Sound getDeepVoiceJudgement() {
+        return deepVoiceJudgement;
+    }
+
     public void dispose() {
         atlasSprites[0].getTexture().dispose();
         shrine.getTexture().dispose();
@@ -84,8 +101,11 @@ public class Assets {
         book.getTexture().dispose();
         pixel.getTexture().dispose();
         god.getTexture().dispose();
+        god2.getTexture().dispose();
+        judgement.getTexture().dispose();
         determination.dispose();
         pickUpSound.dispose();
         putDownSound.dispose();
+        deepVoiceJudgement.dispose();
     }
 }

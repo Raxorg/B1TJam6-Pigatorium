@@ -1,8 +1,5 @@
 package com.jammers.testing.logic;
 
-import static com.badlogic.gdx.Input.Keys.F;
-
-import com.badlogic.gdx.Gdx;
 import com.jammers.testing.stuff.Dialog;
 import com.jammers.testing.stuff.Stuff;
 
@@ -19,13 +16,24 @@ public class DialogHandler {
         dialog.hide();
     }
 
-    public void startDialog(String text) {
+    public void startDialog(String text, float y) {
         targetText = text;
         index = 0;
         time = 0f;
         active = true;
         dialog.setDialogText("");
+        dialog.setY(y);
         dialog.show();
+    }
+
+    public void startDialogSimple(String text, float y) {
+        targetText = text;
+        index = 0;
+        time = 0f;
+        active = true;
+        dialog.setDialogText("");
+        dialog.setY(y);
+        dialog.showSimple();
     }
 
     public void hideDialog() {
@@ -34,15 +42,11 @@ public class DialogHandler {
     }
 
     public void update(float delta) {
-        if (Gdx.input.isKeyJustPressed(F)) {
-            startDialog("Place your offerings within the circle, and I shall judge their worth.");
-        }
-
         if (!active) return;
 
         time += delta;
-        if (time >= 0.2f) {
-            time -= 0.2f;
+        if (time >= 0.08f) {
+            time -= 0.08f;
             dialog.setDialogText(targetText.substring(0, index));
             index++;
             if (index > targetText.length()) active = false;

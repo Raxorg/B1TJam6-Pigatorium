@@ -23,4 +23,11 @@ public class Constants {
     public static final float DIALOG_LABEL_Y = DIALOG_LABEL_BG_Y + DIALOG_LABEL_BG_HEIGHT * 0.5f;
     public static final float DIALOG_TEXT_X = DIALOG_LABEL_X;
     public static final float DIALOG_TEXT_Y = DIALOG_Y + DIALOG_HEIGHT * 0.5f;
+
+    public static final float END_DIALOG_Y = 202f;
+
+    public static final float GOD_SIZE = 175f;
+    public static final float GOD_X = GAME_WIDTH * 0.5f - GOD_SIZE * 0.5f;
+    public static final float GOD_Y = END_DIALOG_Y + DIALOG_HEIGHT;
+
 }

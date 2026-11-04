@@ -12,17 +12,19 @@ public class Logic {
     private final ItemHandler itemHandler;
     private final ShrineHandler shrineHandler;
     private final DialogHandler dialogHandler;
+    private final TestHandler testHandler;
 
     public Logic(Assets assets, Stuff stuff) {
-        EndingHandler endingHandler = new EndingHandler();
         SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff);
         transitionHandler = new TransitionHandler(stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
         movementHandler = new MovementHandler(stuff);
-        timerHandler = new TimerHandler(endingHandler, stuff);
         shrineHandler = new ShrineHandler(sacrificeHandler, assets, stuff);
         itemHandler = new ItemHandler(shrineHandler, assets, stuff);
         dialogHandler = new DialogHandler(stuff);
+        JudgementHandler judgementHandler = new JudgementHandler(dialogHandler, assets, stuff);
+        timerHandler = new TimerHandler(judgementHandler, stuff);
+        testHandler = new TestHandler(dialogHandler, timerHandler);
     }
 
     public void update(float delta) {
@@ -33,5 +35,6 @@ public class Logic {
         itemHandler.update();
         shrineHandler.update();
         dialogHandler.update(delta);
+        testHandler.update();
     }
 }

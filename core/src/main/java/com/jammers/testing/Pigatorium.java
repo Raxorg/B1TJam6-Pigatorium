@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.jammers.testing.logic.Logic;
 import com.jammers.testing.stuff.Stuff;
 
-public class Game extends ApplicationAdapter {
+public class Pigatorium extends ApplicationAdapter {
 
     private OrthographicCamera camera;
     private ExtendViewport viewport;
@@ -46,6 +46,7 @@ public class Game extends ApplicationAdapter {
         stuff.getRoom().draw(spriteBatch);
         stuff.getPig().draw(spriteBatch);
         stuff.getTimerText().draw(spriteBatch);
+        stuff.getJudgementScreen().draw(spriteBatch);
         stuff.getDialog().draw(spriteBatch);
         spriteBatch.end();
     }
