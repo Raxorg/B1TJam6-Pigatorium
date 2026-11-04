@@ -1,0 +1,77 @@
+{
+  "rooms": [
+    {
+      "id": "shrine",
+      "name": "The Shrine Room",
+      "location": {
+        "x": 0,
+        "y": 0
+      },
+      "spawns": [],
+      "connections": [
+        {
+          "direction": "left",
+          "room": "hallway"
+        },
+        {
+          "direction": "bottom",
+          "room": "church"
+        }
+      ]
+    },
+    {
+      "id": "hallway",
+      "name": "The East Wing",
+      "location": {
+        "x": -1,
+        "y": 0
+      },
+      "spawns": [
+        {
+          "x": 4,
+          "y": 6
+        },
+        {
+          "x": 8,
+          "y": 6
+        },
+        {
+          "x": 2,
+          "y": 4
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 7,
+          "y": 4
+        }
+      ],
+      "blacklist": [
+        ""
+      ],
+      "connections": [
+        {
+          "direction": "right",
+          "room": "shrine"
+        }
+      ]
+    },
+    {
+      "id": "church",
+      "name": "Church",
+      "location": {
+        "x": 0,
+        "y": -1
+      },
+      "spawns": [],
+      "connections": [
+        {
+          "direction": "top",
+          "room": "shrine"
+        }
+      ]
+    }
+  ]
+}
