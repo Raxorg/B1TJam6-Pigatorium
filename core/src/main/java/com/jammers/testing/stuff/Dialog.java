@@ -1,6 +1,7 @@
 package com.jammers.testing.stuff;
 
 import static com.badlogic.gdx.graphics.Color.CLEAR;
+import static com.badlogic.gdx.graphics.Color.WHITE;
 import static com.jammers.testing.Constants.DARK_COLOR;
 import static com.jammers.testing.Constants.DIALOG_HEIGHT;
 import static com.jammers.testing.Constants.DIALOG_LABEL_BG_HEIGHT;
@@ -79,6 +80,7 @@ public class Dialog {
         labelBackground.setColor(DARK_COLOR);
         label.setColor(LIGHT_COLOR);
         text.setColor(LIGHT_COLOR);
+        character.setColor(WHITE);
     }
 
     public void hide() {
@@ -87,5 +89,6 @@ public class Dialog {
         labelBackground.setColor(CLEAR);
         label.setColor(CLEAR);
         text.setColor(CLEAR);
+        character.setColor(CLEAR);
     }
 }

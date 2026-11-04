@@ -11,7 +11,7 @@ public class MovementHandler {
     private final Vector2 velocity = new Vector2(0, 0);
     private final Pig pig;
 
-    private static final float MAX_SPEED = 400f;
+    private static final float MAX_SPEED = 300f;
     private static final float ACCELERATION = 1500f;
     private static final float FRICTION = 1200f;
 
