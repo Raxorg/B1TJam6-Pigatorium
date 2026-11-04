@@ -12,7 +12,8 @@ public class Assets {
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church;
     private final Sprite book;
-    private final BitmapFont timerFont;
+    private final Sprite pixel;
+    private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound;
 
     public Assets() {
@@ -26,7 +27,9 @@ public class Assets {
         TextureAtlas itemAtlas = new TextureAtlas("sprites/32x32/items/items.atlas");
         book = itemAtlas.createSprite("book");
 
-        timerFont = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
+        pixel = new Sprite(new Texture("pixel.png"));
+
+        determination = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
 
         pickUpSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/pickUp.ogg"));
         putDownSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/putDown.ogg"));
@@ -52,8 +55,12 @@ public class Assets {
         return book;
     }
 
-    public BitmapFont getTimerFont() {
-        return timerFont;
+    public Sprite getPixel() {
+        return pixel;
+    }
+
+    public BitmapFont getDetermination() {
+        return determination;
     }
 
     public Sound getPickUpSound() {
@@ -70,7 +77,8 @@ public class Assets {
         shrineActive.getTexture().dispose();
         church.getTexture().dispose();
         book.getTexture().dispose();
-        timerFont.dispose();
+        pixel.getTexture().dispose();
+        determination.dispose();
         pickUpSound.dispose();
         putDownSound.dispose();
     }

@@ -1,6 +1,6 @@
 package com.jammers.testing;
 
-import static com.jammers.testing.Constants.CLEAR_COLOR;
+import static com.jammers.testing.Constants.DARK_COLOR;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -38,7 +38,7 @@ public class Game extends ApplicationAdapter {
     }
 
     private void renderGame() {
-        ScreenUtils.clear(CLEAR_COLOR);
+        ScreenUtils.clear(DARK_COLOR);
         viewport.apply();
         spriteBatch.setProjectionMatrix(camera.combined);
 
@@ -46,6 +46,7 @@ public class Game extends ApplicationAdapter {
         stuff.getRoom().draw(spriteBatch);
         stuff.getPig().draw(spriteBatch);
         stuff.getTimerText().draw(spriteBatch);
+        stuff.getDialog().draw(spriteBatch);
         spriteBatch.end();
     }
 

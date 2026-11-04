@@ -13,6 +13,7 @@ public class Stuff {
     private final RoomData shrineRoomData;
     private final Room currentRoom;
     private final Text timerText;
+    private final Dialog dialog;
 
     public Stuff(Assets assets) {
         pig = new Pig(assets.getAtlasSprites());
@@ -28,9 +29,11 @@ public class Stuff {
         churchRoomData.connectRoom(RIGHT, shrineRoomData);
         currentRoom = new Room(shrineRoomData);
 
-        timerText = new Text(assets.getTimerFont());
+        timerText = new Text(assets.getDetermination());
         timerText.setX(GAME_WIDTH * 0.5f - 40f);
         timerText.setY(GAME_HEIGHT - 10f);
+
+        dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getPixel()); // todo send a character sprite
     }
 
     public Pig getPig() {
@@ -47,5 +50,9 @@ public class Stuff {
 
     public Text getTimerText() {
         return timerText;
+    }
+
+    public Dialog getDialog() {
+        return dialog;
     }
 }

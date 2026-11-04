@@ -1,14 +1,8 @@
 package com.jammers.testing;
 
-import static com.epicness.fundamentals.constants.ColorConstants.ANSI_CYAN;
-import static com.epicness.fundamentals.constants.ColorConstants.ANSI_RED;
-import static com.epicness.fundamentals.constants.ColorConstants.ANSI_RESET;
-import static com.epicness.fundamentals.constants.ColorConstants.ANSI_YELLOW;
-
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Vector2;
-import com.epicness.fundamentals.constants.ColorConstants;
 import com.jammers.testing.stuff.Text;
 
 public final class TextUtils {
