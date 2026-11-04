@@ -1,32 +1,176 @@
 package com.jammers.testing.stuff;
 
+import static com.badlogic.gdx.utils.Align.center;
+import static com.badlogic.gdx.utils.Align.left;
+import static com.badlogic.gdx.utils.Align.right;
+
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
+import com.jammers.testing.TextUtils;
 
-public class Text {
+public class Text implements Movable {
 
     private final BitmapFont font;
-    private String text;
-    private float x, y;
+    private String text, truncate;
+    private boolean verticallyCentered, wrap;
+    private float xOffset, yOffset, targetWidth, scale;
+    private int hAlign;
+    private final Rectangle bounds;
+    private final Color color;
+
+    public Text(BitmapFont font, String text) {
+        this.font = font;
+        this.text = text;
+        targetWidth = 500f;
+        scale = 1f;
+        hAlign = left;
+        bounds = new Rectangle();
+        color = new Color(1f, 1f, 1f, 1f);
+        updateBounds();
+    }
 
     public Text(BitmapFont font) {
-        this.font = font;
-        text = "";
+        this(font, "");
     }
 
     public void draw(SpriteBatch spriteBatch) {
-        font.draw(spriteBatch, text, x, y);
+        font.setColor(color);
+        font.getData().setScale(scale);
+
+        font.draw(
+            spriteBatch,
+            text,
+            bounds.x,
+            bounds.y + yOffset,
+            0,
+            text.length(),
+            targetWidth,
+            hAlign,
+            wrap,
+            truncate
+        );
+    }
+
+    public float getX() {
+        return bounds.x;
+    }
+
+    @Override
+    public void translateX(float amount) {
+        bounds.x += amount;
+    }
+
+    @Override
+    public float getY() {
+        return bounds.y;
+    }
+
+    @Override
+    public void translateY(float amount) {
+        bounds.y += amount;
+    }
+
+    public BitmapFont getFont() {
+        return font;
+    }
+
+    public String getText() {
+        return text;
     }
 
     public void setText(String text) {
         this.text = text;
+        updateBounds();
     }
 
-    public void setX(float x) {
-        this.x = x;
+    public int getHAlign() {
+        return hAlign;
     }
 
-    public void setY(float y) {
-        this.y = y;
+    public void hAlignLeft() {
+        hAlign = left;
+        xOffset = 0f;
+    }
+
+    public void hAlignCenter() {
+        hAlign = center;
+        xOffset = (targetWidth - bounds.width) * 0.5f;
+    }
+
+    public void hAlignRight() {
+        hAlign = right;
+        xOffset = targetWidth - bounds.width;
+    }
+
+    public void setVerticallyCentered(boolean centered) {
+        verticallyCentered = centered;
+        yOffset = centered ? bounds.height * 0.5f : 0f;
+    }
+
+    public boolean wrapEnabled() {
+        return wrap;
+    }
+
+    public void setWrap(boolean wrap) {
+        this.wrap = wrap;
+        updateBounds();
+    }
+
+    public String getTruncate() {
+        return truncate;
+    }
+
+    public void setTruncate(String truncate) {
+        this.truncate = truncate;
+        updateBounds();
+    }
+
+    public float getScale() {
+        return scale;
+    }
+
+    public void setScale(float scale) {
+        this.scale = scale;
+        updateBounds();
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color.set(color);
+    }
+
+    public float getTargetWidth() {
+        return targetWidth;
+    }
+
+    public void setTargetWidth(float width) {
+        targetWidth = width;
+        updateBounds();
+    }
+
+    public float getWidth() {
+        return bounds.width;
+    }
+
+    public float getHeight() {
+        return bounds.height;
+    }
+
+    private void updateBounds() {
+        float originalScale = font.getScaleX();
+        font.getData().setScale(scale);
+        bounds.width = TextUtils.getTextWidth(this);
+        bounds.height = TextUtils.getTextHeight(this);
+        font.getData().setScale(originalScale);
+
+        xOffset = hAlign == left ? 0f :
+            hAlign == center ? (targetWidth - bounds.width) * 0.5f :
+                targetWidth - bounds.width;
+        yOffset = verticallyCentered ? bounds.height * 0.5f : 0f;
     }
 }
