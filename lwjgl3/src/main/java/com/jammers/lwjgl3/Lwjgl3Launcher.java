@@ -2,7 +2,7 @@ package com.jammers.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
-import com.jammers.testing.Game;
+import com.jammers.Main;
 
 /**
  * Launches the desktop (LWJGL3) application.
@@ -15,7 +15,7 @@ public class Lwjgl3Launcher {
     }
 
     private static void createApplication() {
-        new Lwjgl3Application(new Game(), getDefaultConfiguration());
+        new Lwjgl3Application(new Main(), getDefaultConfiguration());
     }
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
