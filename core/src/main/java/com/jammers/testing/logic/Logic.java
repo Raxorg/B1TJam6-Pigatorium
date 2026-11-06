@@ -15,8 +15,9 @@ public class Logic {
     private final TestHandler testHandler;
 
     public Logic(Assets assets, Stuff stuff) {
+        ArrowHandler arrowHandler = new ArrowHandler(assets, stuff);
         SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff);
-        transitionHandler = new TransitionHandler(stuff);
+        transitionHandler = new TransitionHandler(arrowHandler, stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
         movementHandler = new MovementHandler(stuff);
         shrineHandler = new ShrineHandler(sacrificeHandler, assets, stuff);

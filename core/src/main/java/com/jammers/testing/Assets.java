@@ -12,7 +12,7 @@ public class Assets {
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church;
     private final Sprite book;
-    private final Sprite pixel, god, god2;
+    private final Sprite pixel, god, god2, arrow;
     private final Sprite judgement;
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
@@ -31,6 +31,7 @@ public class Assets {
         pixel = new Sprite(new Texture("pixel.png"));
         god = new Sprite(new Texture("god.png"));
         god2 = new Sprite(new Texture("god2.png"));
+        arrow = new Sprite(new Texture("arrow.png"));
 
         judgement = new Sprite(new Texture("raw/judgement.png"));
 
@@ -73,6 +74,10 @@ public class Assets {
         return god2;
     }
 
+    public Sprite getArrow() {
+        return arrow;
+    }
+
     public Sprite getJudgement() {
         return judgement;
     }
@@ -102,6 +107,7 @@ public class Assets {
         pixel.getTexture().dispose();
         god.getTexture().dispose();
         god2.getTexture().dispose();
+        arrow.getTexture().dispose();
         judgement.getTexture().dispose();
         determination.dispose();
         pickUpSound.dispose();

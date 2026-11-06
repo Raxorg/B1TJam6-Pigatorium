@@ -22,6 +22,7 @@ public class ShrineHandler {
         pig = stuff.getPig();
         shrineData = stuff.getShrineRoomData();
         Sprite background = shrineData.getBackground();
+        background.translateY(30f);
         shrineCenter = new Vector2(
             background.getX() + background.getWidth() * 0.5f,
             background.getY() + background.getHeight() * 0.45f

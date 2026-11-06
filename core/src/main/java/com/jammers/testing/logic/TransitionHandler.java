@@ -14,6 +14,7 @@ import com.jammers.testing.stuff.Stuff;
 
 public class TransitionHandler {
 
+    private final ArrowHandler arrowHandler;
     private final Sprite sprite;
     private float alpha = 0f;
     private static final float DURATION = 0.5f;
@@ -24,7 +25,8 @@ public class TransitionHandler {
     private final Pig pig;
     private Direction transitionDirection;
 
-    public TransitionHandler(Stuff stuff) {
+    public TransitionHandler(ArrowHandler arrowHandler, Stuff stuff) {
+        this.arrowHandler = arrowHandler;
         sprite = new Sprite(new Texture("pixel.png"));
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         room = stuff.getRoom();
@@ -69,6 +71,7 @@ public class TransitionHandler {
                 pig.setX(0f);
                 break;
         }
+        arrowHandler.updateArrows(nextRoomData);
     }
 
     public void render(SpriteBatch batch) {

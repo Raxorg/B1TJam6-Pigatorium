@@ -45,6 +45,9 @@ public class Pigatorium extends ApplicationAdapter {
         spriteBatch.begin();
         stuff.getRoom().draw(spriteBatch);
         stuff.getPig().draw(spriteBatch);
+        for (int i = 0; i < stuff.getArrows().size; i++) {
+            stuff.getArrows().get(i).draw(spriteBatch);
+        }
         stuff.getTimerText().draw(spriteBatch);
         stuff.getJudgementScreen().draw(spriteBatch);
         stuff.getDialog().draw(spriteBatch);

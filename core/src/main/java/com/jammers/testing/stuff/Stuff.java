@@ -5,6 +5,8 @@ import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.stuff.Direction.LEFT;
 import static com.jammers.testing.stuff.Direction.RIGHT;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.utils.Array;
 import com.jammers.testing.Assets;
 
 public class Stuff {
@@ -13,6 +15,7 @@ public class Stuff {
     private final RoomData shrineRoomData;
     private final Room currentRoom;
     private final Text timerText;
+    private final Array<Sprite> arrows;
     private final Dialog dialog;
     private final JudgementScreen judgementScreen;
 
@@ -34,6 +37,7 @@ public class Stuff {
         timerText.setX(GAME_WIDTH * 0.5f - 40f);
         timerText.setY(GAME_HEIGHT - 10f);
 
+        arrows = new Array<>();
         dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getGod());
         judgementScreen = new JudgementScreen(assets);
     }
@@ -52,6 +56,10 @@ public class Stuff {
 
     public Text getTimerText() {
         return timerText;
+    }
+
+    public Array<Sprite> getArrows() {
+        return arrows;
     }
 
     public Dialog getDialog() {
