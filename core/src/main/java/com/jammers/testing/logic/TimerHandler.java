@@ -12,7 +12,7 @@ public class TimerHandler {
 
     public TimerHandler(JudgementHandler judgementHandler, Stuff stuff) {
         this.judgementHandler = judgementHandler;
-        timerText = stuff.getTimerText();
+        timerText = stuff.getInfoPanel().getTimerText();
         timeRemaining = 180f;
         running = true;
     }
@@ -23,7 +23,7 @@ public class TimerHandler {
         timeRemaining = Math.max(timeRemaining - delta, 0f);
         int minutes = (int) (timeRemaining / 60);
         int seconds = (int) (timeRemaining % 60);
-        timerText.setText(String.format("Time: %02d:%02d", minutes, seconds));
+        timerText.setText(String.format("%02d:%02d", minutes, seconds));
         if (timeRemaining == 0f) {
             judgementHandler.end();
             running = false;

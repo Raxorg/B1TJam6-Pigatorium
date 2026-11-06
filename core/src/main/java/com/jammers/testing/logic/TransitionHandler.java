@@ -6,8 +6,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Direction;
+import com.jammers.testing.stuff.InfoPanel;
+import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Room;
 import com.jammers.testing.stuff.RoomData;
 import com.jammers.testing.stuff.Stuff;
@@ -22,6 +23,7 @@ public class TransitionHandler {
     private boolean fadingOut = true;
     private RoomData nextRoomData;
     private final Room room;
+    private final InfoPanel infoPanel;
     private final Pig pig;
     private Direction transitionDirection;
 
@@ -30,6 +32,7 @@ public class TransitionHandler {
         sprite = new Sprite(new Texture("pixel.png"));
         sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         room = stuff.getRoom();
+        infoPanel = stuff.getInfoPanel();
         pig = stuff.getPig();
     }
 
@@ -71,6 +74,7 @@ public class TransitionHandler {
                 pig.setX(0f);
                 break;
         }
+        infoPanel.getRoomLabel().setText(nextRoomData.getName());
         arrowHandler.updateArrows(nextRoomData);
     }
 

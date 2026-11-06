@@ -30,4 +30,28 @@ public class Constants {
     public static final float GOD_X = GAME_WIDTH * 0.5f - GOD_SIZE * 0.5f;
     public static final float GOD_Y = END_DIALOG_Y + DIALOG_HEIGHT;
 
+    public static final float INFO_BG_WIDTH = GAME_WIDTH - 30f;
+    public static final float INFO_BG_HEIGHT = 40f;
+    public static final float INFO_BG_X = 15f;
+    public static final float INFO_BG_Y = GAME_HEIGHT - INFO_BG_HEIGHT - 14f;
+
+    public static final float INFO_STRIPE_X = INFO_BG_X;
+    public static final float INFO_STRIPE_Y = INFO_BG_Y + 2.5f;
+    public static final float INFO_STRIPE_WIDTH = INFO_BG_WIDTH;
+    public static final float INFO_STRIPE_HEIGHT = INFO_BG_HEIGHT - 5f;
+
+    public static final float INFO_HOME_SIZE = 13f;
+    public static final float INFO_HOME_X = INFO_BG_X;
+    public static final float INFO_HOME_Y = INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - INFO_HOME_SIZE * 0.5f;
+
+    public static final float TIMER_BG_WIDTH = 45f;
+    public static final float TIMER_BG_HEIGHT = 30f;
+    public static final float TIMER_BG_X = INFO_BG_X + INFO_BG_WIDTH * 0.5f - TIMER_BG_WIDTH * 0.5f;
+    public static final float TIMER_BG_Y = INFO_BG_Y + INFO_BG_HEIGHT - TIMER_BG_HEIGHT * 0.5f;
+
+    public static final float ROOM_LABEL_X = INFO_HOME_X + INFO_HOME_SIZE + 7f;
+    public static final float ROOM_LABEL_Y = INFO_HOME_Y + INFO_HOME_SIZE * 0.5f - 1f;
+
+    public static final float JUDGEMENT_LABEL_X = INFO_BG_X;
+    public static final float JUDGEMENT_LABEL_Y = INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - 1f;
 }
