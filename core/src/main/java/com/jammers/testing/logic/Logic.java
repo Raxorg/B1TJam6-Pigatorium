@@ -27,24 +27,23 @@ public class Logic {
         dialogHandler = new DialogHandler(stuff);
         judgementHandler = new JudgementHandler(dialogHandler, sacrificeHandler, assets, stuff);
         timerHandler = new TimerHandler(judgementHandler, stuff);
-        testHandler = new TestHandler(dialogHandler, timerHandler, sacrificeHandler);
+        testHandler = new TestHandler(timerHandler, sacrificeHandler);
         new ItemSpawner(assets, stuff);
-        introHandler = new IntroHandler(dialogHandler);
-
-        assets.getOvertureLoop().setLooping(true);
-        assets.getOvertureLoop().play();
+        introHandler = new IntroHandler(dialogHandler, assets);
     }
 
     public void update(float delta) {
-        movementHandler.update(delta);
+        if (!introHandler.isBlocking()) {
+            movementHandler.update(delta);
+            timerHandler.update(delta);
+        }
         borderDetector.update();
         transitionHandler.update(delta);
-        timerHandler.update(delta);
         itemHandler.update();
         shrineHandler.update();
         dialogHandler.update(delta);
         judgementHandler.update(delta);
         introHandler.update(delta);
-        if (!judgementHandler.isEndingShown()) testHandler.update();
+        if (!introHandler.isBlocking() && !judgementHandler.isEndingShown()) testHandler.update();
     }
 }

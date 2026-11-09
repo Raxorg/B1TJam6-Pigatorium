@@ -59,4 +59,9 @@ public class Constants {
 
     public static final float JUDGEMENT_LABEL_X = INFO_BG_X;
     public static final float JUDGEMENT_LABEL_Y = INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - 1f;
+
+    public static final String INTRO_TEXT =
+        "Bring enough sacrifices to my shrine, eternity and heaven you shall find\n" +
+            "If I decide it's not worthy to make your soul mine\n" +
+            "You shall burn in hellfire for the rest of time";
 }

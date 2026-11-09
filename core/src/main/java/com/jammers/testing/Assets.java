@@ -25,7 +25,7 @@ public class Assets {
     private final Sprite judgement, underworld, ascension;
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
-    private final Sound deepVoiceLoseEnding, deepVoiceWinEnding, goodSacrifice, badSacrifice;
+    private final Sound deepVoiceLoseEnding, deepVoiceWinEnding, deepVoiceIntro, goodSacrifice, badSacrifice;
     private final Music overtureLoop;
     private final Map<String, Array<Rectangle>> colliders;
 
@@ -97,6 +97,7 @@ public class Assets {
         deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
         deepVoiceLoseEnding = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceLoseEnding.ogg"));
         deepVoiceWinEnding = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceWinEnding.ogg"));
+        deepVoiceIntro = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceIntro.ogg"));
         goodSacrifice = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/goodSacrifice.ogg"));
         badSacrifice = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/badSacrifice.ogg"));
 
@@ -333,6 +334,10 @@ public class Assets {
         return deepVoiceWinEnding;
     }
 
+    public Sound getDeepVoiceIntro() {
+        return deepVoiceIntro;
+    }
+
     public Sound getGoodSacrifice() {
         return goodSacrifice;
     }
@@ -369,6 +374,7 @@ public class Assets {
         deepVoiceJudgement.dispose();
         deepVoiceLoseEnding.dispose();
         deepVoiceWinEnding.dispose();
+        deepVoiceIntro.dispose();
         goodSacrifice.dispose();
         badSacrifice.dispose();
         overtureLoop.dispose();
