@@ -3,7 +3,6 @@ package com.jammers.testing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,12 +19,13 @@ public class Assets {
 
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church, garden, grass, hallway, kitchen, library, messHall, outside;
-    private final Sprite axe, book, bread, candle, chalice, comedy, crown, dice, feather, fork, gem, grapes, items, jewel, jug,
+    private final Sprite axe, book, bread, candle, chalice, comedy, crown, dice, feather, fork, gem, grapes, jewel, jug,
         knife, lyre, mace, necklace, paper, pear, potion, scales, scroll, spanner, spoon, sword, teapot, tragedy, vial, wine;
     private final Sprite pixel, god, god2, arrow, home;
-    private final Sprite judgement;
+    private final Sprite judgement, underworld, ascension;
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
+    private final Sound deepVoiceLoseEnding, deepVoiceWinEnding, goodSacrifice, badSacrifice;
     private final Music overtureLoop;
     private final Map<String, Array<Rectangle>> colliders;
 
@@ -61,7 +61,6 @@ public class Assets {
         fork = itemAtlas.createSprite("fork");
         gem = itemAtlas.createSprite("gem");
         grapes = itemAtlas.createSprite("grapes");
-        items = itemAtlas.createSprite("items");
         jewel = itemAtlas.createSprite("jewel");
         jug = itemAtlas.createSprite("jug");
         knife = itemAtlas.createSprite("knife");
@@ -88,12 +87,18 @@ public class Assets {
         home = new Sprite(new Texture("home.png"));
 
         judgement = new Sprite(new Texture("raw/judgement.png"));
+        underworld = new Sprite(new Texture("raw/underworld2.png"));
+        ascension = new Sprite(new Texture("raw/ascension.png"));
 
         determination = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
 
         pickUpSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/pickUp.ogg"));
         putDownSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/putDown.ogg"));
         deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
+        deepVoiceLoseEnding = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceLoseEnding.ogg"));
+        deepVoiceWinEnding = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceWinEnding.ogg"));
+        goodSacrifice = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/goodSacrifice.ogg"));
+        badSacrifice = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/badSacrifice.ogg"));
 
         overtureLoop = Gdx.audio.newMusic(Gdx.files.internal("Audio/Music/overtureLoop.ogg"));
     }
@@ -296,6 +301,14 @@ public class Assets {
         return judgement;
     }
 
+    public Sprite getUnderworld() {
+        return underworld;
+    }
+
+    public Sprite getAscension() {
+        return ascension;
+    }
+
     public BitmapFont getDetermination() {
         return determination;
     }
@@ -310,6 +323,22 @@ public class Assets {
 
     public Sound getDeepVoiceJudgement() {
         return deepVoiceJudgement;
+    }
+
+    public Sound getDeepVoiceLoseEnding() {
+        return deepVoiceLoseEnding;
+    }
+
+    public Sound getDeepVoiceWinEnding() {
+        return deepVoiceWinEnding;
+    }
+
+    public Sound getGoodSacrifice() {
+        return goodSacrifice;
+    }
+
+    public Sound getBadSacrifice() {
+        return badSacrifice;
     }
 
     public Music getOvertureLoop() {
@@ -332,10 +361,16 @@ public class Assets {
         arrow.getTexture().dispose();
         home.getTexture().dispose();
         judgement.getTexture().dispose();
+        underworld.getTexture().dispose();
+        ascension.getTexture().dispose();
         determination.dispose();
         pickUpSound.dispose();
         putDownSound.dispose();
         deepVoiceJudgement.dispose();
+        deepVoiceLoseEnding.dispose();
+        deepVoiceWinEnding.dispose();
+        goodSacrifice.dispose();
+        badSacrifice.dispose();
         overtureLoop.dispose();
     }
 }

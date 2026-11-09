@@ -16,29 +16,32 @@ public class DialogHandler {
         dialog.hide();
     }
 
-    public void startDialog(String text, float y) {
+    private void setupDialog(String text, float y) {
         targetText = text;
         index = 0;
         time = 0f;
         active = true;
         dialog.setDialogText("");
         dialog.setY(y);
+    }
+
+    public void startDialog(String text, float y) {
+        setupDialog(text, y);
         dialog.show();
     }
 
-    public void startDialogSimple(String text, float y) {
-        targetText = text;
-        index = 0;
-        time = 0f;
-        active = true;
-        dialog.setDialogText("");
-        dialog.setY(y);
-        dialog.showSimple();
+    public void startDialogWithoutLabel(String text, float y) {
+        setupDialog(text, y);
+        dialog.showWithoutLabel();
     }
 
     public void hideDialog() {
         dialog.hide();
         active = false;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     public void update(float delta) {

@@ -25,8 +25,9 @@ public class Constants {
     public static final float DIALOG_LABEL_BG_Y = DIALOG_Y + DIALOG_HEIGHT - DIALOG_LABEL_BG_HEIGHT * 0.5f - DIALOG_THICKNESS * 0.5f;
     public static final float DIALOG_LABEL_X = DIALOG_LABEL_BG_X + 5f;
     public static final float DIALOG_LABEL_Y = DIALOG_LABEL_BG_Y + DIALOG_LABEL_BG_HEIGHT * 0.5f;
-    public static final float DIALOG_TEXT_X = DIALOG_LABEL_X;
+    public static final float DIALOG_TEXT_X = DIALOG_X;
     public static final float DIALOG_TEXT_Y = DIALOG_Y + DIALOG_HEIGHT * 0.5f;
+    public static final float DIALOG_TARGET_WIDTH = DIALOG_WIDTH;
 
     public static final float END_DIALOG_Y = 202f;
 

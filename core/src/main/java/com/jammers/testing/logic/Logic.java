@@ -12,18 +12,19 @@ public class Logic {
     private final ItemHandler itemHandler;
     private final ShrineHandler shrineHandler;
     private final DialogHandler dialogHandler;
+    private final JudgementHandler judgementHandler;
     private final TestHandler testHandler;
 
     public Logic(Assets assets, Stuff stuff) {
         ArrowHandler arrowHandler = new ArrowHandler(assets, stuff);
-        SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff);
+        SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff, assets);
         transitionHandler = new TransitionHandler(arrowHandler, stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
         movementHandler = new MovementHandler(stuff);
         shrineHandler = new ShrineHandler(sacrificeHandler, assets, stuff);
         itemHandler = new ItemHandler(shrineHandler, assets, stuff);
         dialogHandler = new DialogHandler(stuff);
-        JudgementHandler judgementHandler = new JudgementHandler(dialogHandler, assets, stuff);
+        judgementHandler = new JudgementHandler(dialogHandler, sacrificeHandler, assets, stuff);
         timerHandler = new TimerHandler(judgementHandler, stuff);
         testHandler = new TestHandler(dialogHandler, timerHandler, sacrificeHandler);
         new ItemSpawner(assets, stuff);
@@ -39,6 +40,7 @@ public class Logic {
         itemHandler.update();
         shrineHandler.update();
         dialogHandler.update(delta);
-        testHandler.update();
+        judgementHandler.update(delta);
+        if (!judgementHandler.isEndingShown()) testHandler.update();
     }
 }

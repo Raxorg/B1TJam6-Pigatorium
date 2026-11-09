@@ -9,6 +9,7 @@ import static com.jammers.testing.Constants.DIALOG_LABEL_BG_X;
 import static com.jammers.testing.Constants.DIALOG_LABEL_BG_Y;
 import static com.jammers.testing.Constants.DIALOG_LABEL_X;
 import static com.jammers.testing.Constants.DIALOG_LABEL_Y;
+import static com.jammers.testing.Constants.DIALOG_TARGET_WIDTH;
 import static com.jammers.testing.Constants.DIALOG_TEXT_X;
 import static com.jammers.testing.Constants.DIALOG_TEXT_Y;
 import static com.jammers.testing.Constants.DIALOG_THICKNESS;
@@ -51,6 +52,8 @@ public class Dialog {
         text.setPosition(DIALOG_TEXT_X, DIALOG_TEXT_Y);
         text.setColor(LIGHT_COLOR);
         text.setVerticallyCentered(true);
+        text.hAlignCenter();
+        text.setTargetWidth(DIALOG_TARGET_WIDTH);
 
         character = new Sprite(characterSprite);
         character.setPosition(DIALOG_X + DIALOG_WIDTH - character.getWidth() - 10f, DIALOG_Y + DIALOG_HEIGHT);
@@ -83,7 +86,7 @@ public class Dialog {
         character.setColor(WHITE);
     }
 
-    public void showSimple() {
+    public void showWithoutLabel() {
         outline.setColor(LIGHT_COLOR);
         background.setColor(DARK_COLOR);
         labelBackground.setColor(CLEAR);

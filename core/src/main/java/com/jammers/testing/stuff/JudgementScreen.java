@@ -15,31 +15,52 @@ import com.jammers.testing.Assets;
 
 public class JudgementScreen {
 
-    private final Sprite background, floor, god;
+    private final Sprite background, god;
+    private final Sprite judgementFloor, underworldFloor, ascensionFloor;
+    private Sprite floor;
 
     public JudgementScreen(Assets assets) {
         background = new Sprite(assets.getPixel());
         background.setSize(GAME_WIDTH, GAME_HEIGHT);
         background.setColor(DARK_COLOR);
 
-        floor = assets.getJudgement();
-        float ratio = floor.getWidth() / floor.getHeight();
-        floor.setSize(GAME_WIDTH, GAME_WIDTH / ratio);
+        judgementFloor = new Sprite(assets.getJudgement());
+        underworldFloor = new Sprite(assets.getUnderworld());
+        ascensionFloor = new Sprite(assets.getAscension());
+        sizeFloor(judgementFloor);
+        sizeFloor(underworldFloor);
+        sizeFloor(ascensionFloor);
+        floor = judgementFloor;
 
         god = assets.getGod2();
         god.setPosition(GOD_X, GOD_Y);
         god.setSize(GOD_SIZE, GOD_SIZE);
     }
 
+    private void sizeFloor(Sprite floor) {
+        float ratio = floor.getWidth() / floor.getHeight();
+        floor.setSize(GAME_WIDTH, GAME_WIDTH / ratio);
+    }
+
     public void show() {
         background.setColor(DARK_COLOR);
+        floor = judgementFloor;
+        floor.setColor(WHITE);
+        god.setColor(WHITE);
+    }
+
+    public void showEnding(boolean won) {
+        background.setColor(DARK_COLOR);
+        floor = won ? ascensionFloor : underworldFloor;
         floor.setColor(WHITE);
         god.setColor(WHITE);
     }
 
     public void hide() {
         background.setColor(CLEAR);
-        floor.setColor(CLEAR);
+        judgementFloor.setColor(CLEAR);
+        underworldFloor.setColor(CLEAR);
+        ascensionFloor.setColor(CLEAR);
         god.setColor(CLEAR);
     }
 
