@@ -26,6 +26,7 @@ public class Logic {
         JudgementHandler judgementHandler = new JudgementHandler(dialogHandler, assets, stuff);
         timerHandler = new TimerHandler(judgementHandler, stuff);
         testHandler = new TestHandler(dialogHandler, timerHandler);
+        new ItemSpawner(assets, stuff);
     }
 
     public void update(float delta) {

@@ -84,6 +84,7 @@ public class Stuff {
 
         garden.connectRoom(RIGHT, outside);
 
+        outside.connectRoom(UP, church);
         outside.connectRoom(LEFT, garden);
         outside.connectRoom(RIGHT, grass);
 

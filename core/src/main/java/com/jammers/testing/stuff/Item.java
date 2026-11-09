@@ -9,8 +9,9 @@ public final class Item {
     public final int value;
     public final String name;
 
-    public Item(Sprite sprite, int value, String name) {
-        this.sprite = sprite;
+    public Item(Sprite sprite, float x, float y, int value, String name) {
+        this.sprite = new Sprite(sprite);
+        this.sprite.setPosition(x, y);
         this.value = value;
         this.name = name;
     }

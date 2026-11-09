@@ -33,10 +33,10 @@ public class ArrowHandler {
         switch (direction) {
             case UP:
                 arrow.rotate(180f);
-                arrow.setPosition(200f, 200f);
+                arrow.setPosition(212f, 389f);
                 break;
             case DOWN:
-                arrow.setPosition(100f, 200f);
+                arrow.setPosition(212f, 30f);
                 break;
             case LEFT:
                 arrow.rotate(-90f);
@@ -47,6 +47,7 @@ public class ArrowHandler {
                 arrow.setPosition(415f, 220f);
                 break;
         }
+        arrow.setScale(0.9f);
         arrows.add(arrow);
     }
 }

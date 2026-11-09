@@ -13,7 +13,6 @@ import com.jammers.testing.Assets;
 import com.jammers.testing.stuff.Item;
 import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Room;
-import com.jammers.testing.stuff.RoomEnum;
 import com.jammers.testing.stuff.Stuff;
 import com.jammers.testing.stuff.Text;
 
@@ -36,7 +35,6 @@ public class ItemHandler {
         itemIcon = stuff.getInfoPanel().getItemIcon();
         pickUpSound = assets.getPickUpSound();
         putDownSound = assets.getPutDownSound();
-        stuff.getRoomDataMap().get(RoomEnum.SHRINE).getItems().add(new Item(assets.getBook(), 10, "A BOOK"));
     }
 
     public void update() {

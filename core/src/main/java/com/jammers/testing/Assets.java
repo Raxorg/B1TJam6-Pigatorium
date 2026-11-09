@@ -11,7 +11,8 @@ public class Assets {
 
     private final Sprite[] atlasSprites;
     private final Sprite shrine, shrineActive, church, garden, grass, hallway, kitchen, library, messHall, outside;
-    private final Sprite book;
+    private final Sprite axe, book, bread, candle, chalice, comedy, crown, dice, feather, fork, gem, grapes, items, jewel, jug,
+        knife, lyre, mace, necklace, paper, pear, potion, scales, scroll, spanner, spoon, sword, teapot, tragedy, vial, wine;
     private final Sprite pixel, god, god2, arrow, home;
     private final Sprite judgement;
     private final BitmapFont determination;
@@ -33,7 +34,37 @@ public class Assets {
         outside = new Sprite(new Texture("sprites/320x320/map/outside.png"));
 
         TextureAtlas itemAtlas = new TextureAtlas("sprites/32x32/items/items.atlas");
+        axe = itemAtlas.createSprite("axe");
         book = itemAtlas.createSprite("book");
+        bread = itemAtlas.createSprite("bread");
+        candle = itemAtlas.createSprite("candle");
+        chalice = itemAtlas.createSprite("chalice");
+        comedy = itemAtlas.createSprite("comedy");
+        crown = itemAtlas.createSprite("crown");
+        dice = itemAtlas.createSprite("dice");
+        feather = itemAtlas.createSprite("feather");
+        fork = itemAtlas.createSprite("fork");
+        gem = itemAtlas.createSprite("gem");
+        grapes = itemAtlas.createSprite("grapes");
+        items = itemAtlas.createSprite("items");
+        jewel = itemAtlas.createSprite("jewel");
+        jug = itemAtlas.createSprite("jug");
+        knife = itemAtlas.createSprite("knife");
+        lyre = itemAtlas.createSprite("lyre");
+        mace = itemAtlas.createSprite("mace");
+        necklace = itemAtlas.createSprite("necklace");
+        paper = itemAtlas.createSprite("paper");
+        pear = itemAtlas.createSprite("pear");
+        potion = itemAtlas.createSprite("potion");
+        scales = itemAtlas.createSprite("scales");
+        scroll = itemAtlas.createSprite("scroll");
+        spanner = itemAtlas.createSprite("spanner");
+        spoon = itemAtlas.createSprite("spoon");
+        sword = itemAtlas.createSprite("sword");
+        teapot = itemAtlas.createSprite("teapot");
+        tragedy = itemAtlas.createSprite("tragedy");
+        vial = itemAtlas.createSprite("vial");
+        wine = itemAtlas.createSprite("wine");
 
         pixel = new Sprite(new Texture("pixel.png"));
         god = new Sprite(new Texture("god.png"));
@@ -94,8 +125,124 @@ public class Assets {
         return outside;
     }
 
+    public Sprite getAxe() {
+        return axe;
+    }
+
     public Sprite getBook() {
         return book;
+    }
+
+    public Sprite getBread() {
+        return bread;
+    }
+
+    public Sprite getCandle() {
+        return candle;
+    }
+
+    public Sprite getChalice() {
+        return chalice;
+    }
+
+    public Sprite getComedy() {
+        return comedy;
+    }
+
+    public Sprite getCrown() {
+        return crown;
+    }
+
+    public Sprite getDice() {
+        return dice;
+    }
+
+    public Sprite getFeather() {
+        return feather;
+    }
+
+    public Sprite getFork() {
+        return fork;
+    }
+
+    public Sprite getGem() {
+        return gem;
+    }
+
+    public Sprite getGrapes() {
+        return grapes;
+    }
+
+    public Sprite getJewel() {
+        return jewel;
+    }
+
+    public Sprite getJug() {
+        return jug;
+    }
+
+    public Sprite getKnife() {
+        return knife;
+    }
+
+    public Sprite getLyre() {
+        return lyre;
+    }
+
+    public Sprite getMace() {
+        return mace;
+    }
+
+    public Sprite getNecklace() {
+        return necklace;
+    }
+
+    public Sprite getPaper() {
+        return paper;
+    }
+
+    public Sprite getPear() {
+        return pear;
+    }
+
+    public Sprite getPotion() {
+        return potion;
+    }
+
+    public Sprite getScales() {
+        return scales;
+    }
+
+    public Sprite getScroll() {
+        return scroll;
+    }
+
+    public Sprite getSpanner() {
+        return spanner;
+    }
+
+    public Sprite getSpoon() {
+        return spoon;
+    }
+
+    public Sprite getSword() {
+        return sword;
+    }
+
+    public Sprite getTeapot() {
+        return teapot;
+    }
+
+    public Sprite getTragedy() {
+        return tragedy;
+    }
+
+    public Sprite getVial() {
+        return vial;
+    }
+
+    public Sprite getWine() {
+        return wine;
     }
 
     public Sprite getPixel() {
