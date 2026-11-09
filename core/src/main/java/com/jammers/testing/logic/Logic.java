@@ -21,7 +21,7 @@ public class Logic {
         SacrificeHandler sacrificeHandler = new SacrificeHandler(stuff, assets);
         transitionHandler = new TransitionHandler(arrowHandler, stuff);
         borderDetector = new BorderDetector(transitionHandler, stuff);
-        movementHandler = new MovementHandler(stuff);
+        movementHandler = new MovementHandler(assets, stuff);
         shrineHandler = new ShrineHandler(sacrificeHandler, assets, stuff);
         itemHandler = new ItemHandler(shrineHandler, assets, stuff);
         dialogHandler = new DialogHandler(stuff);

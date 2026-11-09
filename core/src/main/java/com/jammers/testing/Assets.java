@@ -24,7 +24,7 @@ public class Assets {
     private final Sprite pixel, god, god2, arrow, home;
     private final Sprite judgement, underworld, ascension;
     private final BitmapFont determination;
-    private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
+    private final Sound pickUpSound, putDownSound, footstep, deepVoiceJudgement;
     private final Sound deepVoiceLoseEnding, deepVoiceWinEnding, deepVoiceIntro, goodSacrifice, badSacrifice;
     private final Music overtureLoop;
     private final Map<String, Array<Rectangle>> colliders;
@@ -93,6 +93,7 @@ public class Assets {
         determination = new BitmapFont(Gdx.files.internal("fonts/determination_12.fnt"));
 
         pickUpSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/pickUp.ogg"));
+        footstep = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/footstep.ogg"));
         putDownSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/putDown.ogg"));
         deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
         deepVoiceLoseEnding = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceLoseEnding.ogg"));
@@ -322,6 +323,10 @@ public class Assets {
         return putDownSound;
     }
 
+    public Sound getFootstep() {
+        return footstep;
+    }
+
     public Sound getDeepVoiceJudgement() {
         return deepVoiceJudgement;
     }
@@ -371,6 +376,7 @@ public class Assets {
         determination.dispose();
         pickUpSound.dispose();
         putDownSound.dispose();
+        footstep.dispose();
         deepVoiceJudgement.dispose();
         deepVoiceLoseEnding.dispose();
         deepVoiceWinEnding.dispose();

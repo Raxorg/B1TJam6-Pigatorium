@@ -6,7 +6,9 @@ import static com.jammers.testing.Constants.MAX_SPEED;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector2;
+import com.jammers.testing.Assets;
 import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.Stuff;
 
@@ -14,9 +16,12 @@ public class MovementHandler {
 
     private final Vector2 velocity = new Vector2(0, 0);
     private final Pig pig;
+    private final Sound footstep;
+    private float footstepTimer;
 
-    public MovementHandler(Stuff stuff) {
+    public MovementHandler(Assets assets, Stuff stuff) {
         this.pig = stuff.getPig();
+        this.footstep = assets.getFootstep();
     }
 
     public void update(float delta) {
@@ -51,6 +56,17 @@ public class MovementHandler {
 
         // Move character
         pig.translate(velocity.x * delta, velocity.y * delta);
+
+        // Play footsteps periodically while moving.
+        if ((moveX != 0f || moveY != 0f) && velocity.len2() > 0f) {
+            footstepTimer -= delta;
+            if (footstepTimer <= 0f) {
+                footstep.play();
+                footstepTimer = 0.22f;
+            }
+        } else {
+            footstepTimer = 0f;
+        }
 
         // Update character animation with input directions
         pig.update(delta, moveX, moveY);
