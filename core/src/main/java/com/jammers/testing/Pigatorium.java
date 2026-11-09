@@ -29,6 +29,7 @@ public class Pigatorium extends ApplicationAdapter {
         assets = new Assets();
         stuff = new Stuff(assets);
         logic = new Logic(assets, stuff);
+
     }
 
     @Override

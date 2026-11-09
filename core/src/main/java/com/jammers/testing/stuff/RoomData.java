@@ -3,6 +3,8 @@ package com.jammers.testing.stuff;
 import static com.jammers.testing.Constants.GAME_HEIGHT;
 import static com.jammers.testing.Constants.GAME_WIDTH;
 
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
@@ -18,8 +20,10 @@ public final class RoomData {
     private final Array<Rectangle> colliderRects;
     private final DelayedRemovalArray<Item> items;
     private final Map<Direction, RoomData> roomMap;
+    public Pixmap bgDat;
 
-    public RoomData(String roomName, Sprite backgroundSprite, Array<Rectangle> colliderRects) {
+    public RoomData(String roomName, Sprite backgroundSprite, Array<Rectangle> colliderRects)
+    {
         name = roomName;
         background = new Sprite(backgroundSprite);
         background.setPosition(
@@ -30,7 +34,6 @@ public final class RoomData {
         items = new DelayedRemovalArray<>();
         roomMap = new HashMap<>();
     }
-
     public String getName() {
         return name;
     }
@@ -42,6 +45,7 @@ public final class RoomData {
     public Array<Rectangle> getColliderRects() {
         return colliderRects;
     }
+
 
     public DelayedRemovalArray<Item> getItems() {
         return items;

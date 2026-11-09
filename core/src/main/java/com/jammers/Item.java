@@ -40,9 +40,6 @@ public class Item
             }
         }
         if(holding) pickUp(character);
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.setColor(Color.TEAL);
-        shapeRenderer.rect(position.x, position.y, 100,100);
-        shapeRenderer.end();
+
     }
 }

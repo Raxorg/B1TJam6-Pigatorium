@@ -18,6 +18,7 @@ public class BorderDetector {
     private final Room room;
     private final Pig pig;
 
+
     public BorderDetector(TransitionHandler transitionHandler, Stuff stuff) {
         this.transitionHandler = transitionHandler;
         room = stuff.getRoom();

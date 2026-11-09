@@ -1,7 +1,11 @@
 package com.jammers;
 
-import com.badlogic.gdx.graphics.Color;
+
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 
 public class Character
@@ -59,17 +63,6 @@ public class Character
         this.y = y;
     }
 
-    private Color color;
-
-    public Color getColor()
-    {
-        return color;
-    }
-
-    public void setColor(Color color)
-    {
-        this.color = color;
-    }
 
     public void translate(float x, float y)
     {
@@ -88,17 +81,18 @@ public class Character
     }
 
     ShapeRenderer shapeRenderer;
+    Sprite s;
+    public Character()    {
 
-    public Character(ShapeRenderer shapeRenderer)
-    {
-        this.color = color;
-        this.shapeRenderer = shapeRenderer;
+        ;
     }
-
-    public void draw(ShapeRenderer shapeRenderer)
+    public void draw(SpriteBatch s, Matrix4 m)
     {
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        shapeRenderer.rect(x, y, width, height, color,color,color,color);
-        shapeRenderer.end();
+        this.s.setPosition(x, y);
+        this.s.setSize(width, height);
+        s.setProjectionMatrix(m);
+        s.begin();
+        this.s.draw(s);
+        s.end();
     }
 }

@@ -3,6 +3,9 @@ package com.jammers.testing.stuff;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.collision.BoundingBox;
 
 public class Pig {
 
@@ -99,6 +102,7 @@ public class Pig {
         sprite.setY(y);
     }
 
+    public void setPosition(Vector2 position) {sprite.setPosition(position.x, position.y);}
     public void setPosition(float x, float y) {
         sprite.setPosition(x, y);
     }
@@ -118,4 +122,8 @@ public class Pig {
     public void setHeldItem(Item heldItem) {
         this.heldItem = heldItem;
     }
+
+    public Rectangle getBoundingRectangle() {return sprite.getBoundingRectangle();}
+
+    public Vector2 getPosition() {return new Vector2(sprite.getX(), sprite.getY());}
 }

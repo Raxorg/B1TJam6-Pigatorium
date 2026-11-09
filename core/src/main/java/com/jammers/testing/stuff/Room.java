@@ -11,6 +11,10 @@ public class Room {
         this.roomData = roomData;
     }
 
+    public void set(RoomData roomData) {
+        this.roomData = roomData;
+    }
+
     public void draw(SpriteBatch spriteBatch) {
         roomData.getBackground().draw(spriteBatch);
         for (int i = 0; i < roomData.getItems().size; i++) {
@@ -18,14 +22,14 @@ public class Room {
         }
     }
 
-    public RoomData getRoomData() {
+    public String getName() {
+        return roomData.getName();
+    }
+
+    public RoomData getRoomData()
+    {
         return roomData;
     }
-
-    public void setData(RoomData roomData) {
-        this.roomData = roomData;
-    }
-
     public RoomData getConnectedRoom(Direction direction) {
         return roomData.getConnectedRoom(direction);
     }
