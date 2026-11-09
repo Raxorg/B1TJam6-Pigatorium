@@ -8,7 +8,11 @@ public class Constants {
     public static final Color LIGHT_COLOR = new Color(0xBAC0B5FF);
     public static final float GAME_WIDTH = 480f;
     public static final float GAME_HEIGHT = 480f;
+
     public static final int REQUIRED_FAVOR = 100;
+    public static final float MAX_SPEED = 300f;
+    public static final float ACCELERATION = 1500f;
+    public static final float FRICTION = 1200f;
 
     public static final float DIALOG_X = 4f;
     public static final float DIALOG_Y = 4f;
