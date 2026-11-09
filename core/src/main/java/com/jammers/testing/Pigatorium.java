@@ -82,7 +82,8 @@ public class Pigatorium extends ApplicationAdapter {
         collisionRenderer.setColor(Color.RED);
 
         if (colliders != null) {
-            for (Rectangle collider : colliders) {
+            for (int i = 0; i < colliders.size; i++) {
+                Rectangle collider = colliders.get(i);
                 collisionRenderer.rect(
                     room.getBackground().getX() + collider.x,
                     room.getBackground().getY() + collider.y,
@@ -99,6 +100,13 @@ public class Pigatorium extends ApplicationAdapter {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height, true);
+        float worldWidth = viewport.getWorldWidth();
+        float worldHeight = viewport.getWorldHeight();
+        stuff.getFader().setSize(worldWidth, worldHeight);
+        stuff.getFader().setPosition(
+            camera.position.x - worldWidth * 0.5f,
+            camera.position.y - worldHeight * 0.5f
+        );
     }
 
     @Override

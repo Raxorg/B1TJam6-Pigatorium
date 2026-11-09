@@ -3,10 +3,7 @@ package com.jammers.testing.logic;
 import static com.jammers.testing.Constants.GAME_HEIGHT;
 import static com.jammers.testing.Constants.GAME_WIDTH;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.jammers.testing.stuff.Direction;
 import com.jammers.testing.stuff.InfoPanel;
 import com.jammers.testing.stuff.Pig;
@@ -19,7 +16,7 @@ public class TransitionHandler {
     private final ArrowHandler arrowHandler;
     private final Sprite sprite;
     private float alpha = 0f;
-    private static final float DURATION = 0.5f;
+    private static final float DURATION = 0.25f;
     private boolean isTransitioning = false;
     private boolean fadingOut = true;
     private RoomData nextRoomData;
@@ -30,8 +27,7 @@ public class TransitionHandler {
 
     public TransitionHandler(ArrowHandler arrowHandler, Stuff stuff) {
         this.arrowHandler = arrowHandler;
-        sprite = new Sprite(new Texture("pixel.png"));
-        sprite.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        sprite = stuff.getFader();
         room = stuff.getRoom();
         infoPanel = stuff.getInfoPanel();
         pig = stuff.getPig();
@@ -44,6 +40,7 @@ public class TransitionHandler {
         this.alpha = 0f;
         this.nextRoomData = nextRoomData;
         this.transitionDirection = transitionDirection;
+        sprite.setAlpha(alpha);
     }
 
     public void update(float delta) {
@@ -63,6 +60,7 @@ public class TransitionHandler {
                 isTransitioning = false;
             }
         }
+        sprite.setAlpha(alpha);
     }
 
     private void setupRoom() {
@@ -89,23 +87,11 @@ public class TransitionHandler {
         arrowHandler.updateArrows(nextRoomData);
     }
 
-    public void render(SpriteBatch batch) {
-        if (alpha <= 0f) return;
-        sprite.setColor(0, 0, 0, alpha);
-        sprite.draw(batch);
-    }
-
     public boolean isTransitioning() {
         return isTransitioning;
     }
 
     public float getAlpha() {
         return alpha;
-    }
-
-    public void dispose() {
-        if (sprite.getTexture() != null) {
-            sprite.getTexture().dispose();
-        }
     }
 }
