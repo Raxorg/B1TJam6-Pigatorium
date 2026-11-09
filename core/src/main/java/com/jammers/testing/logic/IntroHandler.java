@@ -39,6 +39,16 @@ public class IntroHandler {
         }
     }
 
+    public void skip() {
+        if (!blocking) return;
+
+        dialogHandler.hideDialog();
+        assets.getOvertureLoop().setLooping(true);
+        assets.getOvertureLoop().play();
+        assets.getDeepVoiceIntro().stop();
+        blocking = false;
+    }
+
     public boolean isBlocking() {
         return blocking;
     }
