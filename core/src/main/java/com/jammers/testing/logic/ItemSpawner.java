@@ -1,7 +1,6 @@
 package com.jammers.testing.logic;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.DelayedRemovalArray;
 import com.jammers.testing.Assets;
 import com.jammers.testing.stuff.Item;
@@ -26,36 +25,37 @@ public class ItemSpawner {
     }
 
     private void populateItemData(Assets assets) {
-        itemDataStack.add(new ItemData(assets.getAxe(), randomValue(), "AN AXE"));
-        itemDataStack.add(new ItemData(assets.getBook(), randomValue(), "A BOOK"));
-        itemDataStack.add(new ItemData(assets.getBread(), randomValue(), "BREAD"));
-        itemDataStack.add(new ItemData(assets.getCandle(), randomValue(), "A CANDLE"));
-        itemDataStack.add(new ItemData(assets.getChalice(), randomValue(), "A CHALICE"));
-        itemDataStack.add(new ItemData(assets.getComedy(), randomValue(), "COMEDY"));
-        itemDataStack.add(new ItemData(assets.getCrown(), randomValue(), "A CROWN"));
-        itemDataStack.add(new ItemData(assets.getDice(), randomValue(), "A DICE"));
-        itemDataStack.add(new ItemData(assets.getFeather(), randomValue(), "A FEATHER"));
-        itemDataStack.add(new ItemData(assets.getFork(), randomValue(), "A FORK"));
-        itemDataStack.add(new ItemData(assets.getGem(), randomValue(), "A GEM"));
-        itemDataStack.add(new ItemData(assets.getGrapes(), randomValue(), "GRAPES"));
-        itemDataStack.add(new ItemData(assets.getJewel(), randomValue(), "A JEWEL"));
-        itemDataStack.add(new ItemData(assets.getJug(), randomValue(), "A JUG"));
-        itemDataStack.add(new ItemData(assets.getKnife(), randomValue(), "A KNIFE"));
-        itemDataStack.add(new ItemData(assets.getLyre(), randomValue(), "A LYRE"));
-        itemDataStack.add(new ItemData(assets.getMace(), randomValue(), "A MACE"));
-        itemDataStack.add(new ItemData(assets.getNecklace(), randomValue(), "A NECKLACE"));
-        itemDataStack.add(new ItemData(assets.getPaper(), randomValue(), "A PAPER"));
-        itemDataStack.add(new ItemData(assets.getPear(), randomValue(), "A PEAR"));
-        itemDataStack.add(new ItemData(assets.getPotion(), randomValue(), "A POTION"));
-        itemDataStack.add(new ItemData(assets.getScales(), randomValue(), "SCALES"));
-        itemDataStack.add(new ItemData(assets.getScroll(), randomValue(), "A SCROLL"));
-        itemDataStack.add(new ItemData(assets.getSpanner(), randomValue(), "A SPANNER"));
-        itemDataStack.add(new ItemData(assets.getSpoon(), randomValue(), "A SPOON"));
-        itemDataStack.add(new ItemData(assets.getSword(), randomValue(), "A SWORD"));
-        itemDataStack.add(new ItemData(assets.getTeapot(), randomValue(), "A TEAPOT"));
-        itemDataStack.add(new ItemData(assets.getTragedy(), randomValue(), "TRAGEDY"));
-        itemDataStack.add(new ItemData(assets.getVial(), randomValue(), "A VIAL"));
-        itemDataStack.add(new ItemData(assets.getWine(), randomValue(), "WINE"));
+        // Fixed values keep item worth consistent between runs. Positive items total 163 favor.
+        itemDataStack.add(new ItemData(assets.getAxe(), 8, "AN AXE"));
+        itemDataStack.add(new ItemData(assets.getBook(), 5, "A BOOK"));
+        itemDataStack.add(new ItemData(assets.getBread(), -3, "BREAD"));
+        itemDataStack.add(new ItemData(assets.getCandle(), 6, "A CANDLE"));
+        itemDataStack.add(new ItemData(assets.getChalice(), 10, "A CHALICE"));
+        itemDataStack.add(new ItemData(assets.getComedy(), 4, "COMEDY"));
+        itemDataStack.add(new ItemData(assets.getCrown(), 12, "A CROWN"));
+        itemDataStack.add(new ItemData(assets.getDice(), -4, "A DICE"));
+        itemDataStack.add(new ItemData(assets.getFeather(), 3, "A FEATHER"));
+        itemDataStack.add(new ItemData(assets.getFork(), 2, "A FORK"));
+        itemDataStack.add(new ItemData(assets.getGem(), 10, "A GEM"));
+        itemDataStack.add(new ItemData(assets.getGrapes(), 5, "GRAPES"));
+        itemDataStack.add(new ItemData(assets.getJewel(), 12, "A JEWEL"));
+        itemDataStack.add(new ItemData(assets.getJug(), -2, "A JUG"));
+        itemDataStack.add(new ItemData(assets.getKnife(), 5, "A KNIFE"));
+        itemDataStack.add(new ItemData(assets.getLyre(), 8, "A LYRE"));
+        itemDataStack.add(new ItemData(assets.getMace(), 7, "A MACE"));
+        itemDataStack.add(new ItemData(assets.getNecklace(), 11, "A NECKLACE"));
+        itemDataStack.add(new ItemData(assets.getPaper(), -5, "A PAPER"));
+        itemDataStack.add(new ItemData(assets.getPear(), 3, "A PEAR"));
+        itemDataStack.add(new ItemData(assets.getPotion(), 6, "A POTION"));
+        itemDataStack.add(new ItemData(assets.getScales(), 4, "SCALES"));
+        itemDataStack.add(new ItemData(assets.getScroll(), 5, "A SCROLL"));
+        itemDataStack.add(new ItemData(assets.getSpanner(), -3, "A SPANNER"));
+        itemDataStack.add(new ItemData(assets.getSpoon(), 2, "A SPOON"));
+        itemDataStack.add(new ItemData(assets.getSword(), 10, "A SWORD"));
+        itemDataStack.add(new ItemData(assets.getTeapot(), 4, "A TEAPOT"));
+        itemDataStack.add(new ItemData(assets.getTragedy(), 3, "TRAGEDY"));
+        itemDataStack.add(new ItemData(assets.getVial(), 5, "A VIAL"));
+        itemDataStack.add(new ItemData(assets.getWine(), 8, "WINE"));
         Collections.shuffle(itemDataStack);
     }
 
@@ -99,10 +99,6 @@ public class ItemSpawner {
         for (int[] coordinate : coordinates) {
             spawnPoints.add(new ItemSpawnPoint(items, coordinate[0], coordinate[1]));
         }
-    }
-
-    private int randomValue() {
-        return MathUtils.random(-20, 40);
     }
 
     private static class ItemSpawnPoint {
