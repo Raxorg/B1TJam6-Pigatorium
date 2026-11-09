@@ -4,6 +4,7 @@ A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://git
 
 This project was generated with a template including simple application launchers and an empty `ApplicationAdapter` extension.
 This project uses JDK 21
+
 ## Platforms
 
 - `core`: Main module with the application logic shared by all platforms.
