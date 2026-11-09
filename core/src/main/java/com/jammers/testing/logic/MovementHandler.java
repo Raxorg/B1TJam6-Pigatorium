@@ -2,8 +2,13 @@ package com.jammers.testing.logic;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import com.jammers.testing.stuff.Pig;
+import com.jammers.testing.stuff.Room;
+import com.jammers.testing.stuff.RoomData;
 import com.jammers.testing.stuff.Stuff;
 
 public class MovementHandler {
@@ -14,9 +19,12 @@ public class MovementHandler {
     private static final float MAX_SPEED = 300f;
     private static final float ACCELERATION = 1500f;
     private static final float FRICTION = 1200f;
+    private final Room room;
+    private final Rectangle nextBounds = new Rectangle();
 
     public MovementHandler(Stuff stuff) {
         this.pig = stuff.getPig();
+        room = stuff.getRoom();
     }
 
     public void update(float delta) {
@@ -49,10 +57,46 @@ public class MovementHandler {
         // Clamp velocity to max speed
         velocity.clamp(0f, MAX_SPEED);
 
-        // Move character
-        pig.translate(velocity.x * delta, velocity.y * delta);
+        float dx = velocity.x * delta;
+        float dy = velocity.y * delta;
+
+        if (canMove(dx, 0)) {
+            pig.translate(dx, 0);
+        } else {
+            velocity.x = 0;
+        }
+
+        if (canMove(0, dy)) {
+            pig.translate(0, dy);
+        } else {
+            velocity.y = 0;
+        }
 
         // Update character animation with input directions
         pig.update(delta, moveX, moveY);
+
+    }
+
+    private boolean canMove(float dx, float dy) {
+        RoomData roomData = room.getRoomData();
+        Sprite background = roomData.getBackground();
+        Array<Rectangle> colliderRects = roomData.getColliderRects();
+
+        nextBounds.set(
+            pig.getX() + dx - background.getX(),
+            pig.getY() + dy - background.getY(),
+            pig.getWidth(),
+            pig.getHeight()
+        );
+
+        if (colliderRects != null) {
+            for (Rectangle collider : colliderRects) {
+                if (nextBounds.overlaps(collider)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }

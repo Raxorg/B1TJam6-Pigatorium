@@ -31,8 +31,10 @@ dependencies {
 gdxTeaVM {
   assets.from(rootProject.files('assets'))
 
-  /// You can add additional classes or packages that need reflection here.
-  //reflection.add("com.jammers.reflect")
+  // libGDX Json reflects over Rooms and its nested Room DTO when loading colliders.
+  reflection.add("com.jammers.testing.dto")
+  reflection.add("com.badlogic.gdx.math.Rectangle")
+  reflection.add("com.jammers.testing.dto.Rooms")
 
   webDefaults {
     mainClass.set("com.jammers.teavm.TeaVMLauncher")

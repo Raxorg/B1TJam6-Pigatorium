@@ -1,7 +1,7 @@
 pig.png
 size: 108, 117
 format: RGBA8888
-filter: Linear, Linear
+filter: Nearest, Nearest
 repeat: none
 pma: false
 pig1

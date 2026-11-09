@@ -3,10 +3,18 @@ package com.jammers.testing;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Json;
+import com.jammers.testing.dto.Rooms;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Assets {
 
@@ -19,21 +27,26 @@ public class Assets {
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
     private final Music overtureLoop;
+    private final Map<String, Array<Rectangle>> colliders;
 
     public Assets() {
+
+        colliders = loadColliders();
+
         TextureAtlas pigAtlas = new TextureAtlas("pig.atlas");
         atlasSprites = pigAtlas.createSprites().items;
 
-        shrine = new Sprite(new Texture("raw/shrine-2.png"));
-        shrineActive = new Sprite(new Texture("raw/shrineActive.png"));
-        church = new Sprite(new Texture("raw/church.png"));
+        shrine = new Sprite(new Texture("sprites/320x320/map/shrine.png"));
+        shrineActive = new Sprite(new Texture("sprites/320x320/map/shrine-active.png"));
+        church = new Sprite(new Texture("sprites/320x320/map/church.png"));
         garden = new Sprite(new Texture("sprites/320x320/map/garden.png"));
         grass = new Sprite(new Texture("sprites/320x320/map/grass.png"));
         hallway = new Sprite(new Texture("sprites/320x320/map/hallway.png"));
         kitchen = new Sprite(new Texture("sprites/320x320/map/kitchen.png"));
         library = new Sprite(new Texture("sprites/320x320/map/library.png"));
-        messHall = new Sprite(new Texture("sprites/320x320/map/messHall.png"));
+        messHall = new Sprite(new Texture("sprites/320x320/map/messhall.png"));
         outside = new Sprite(new Texture("sprites/320x320/map/outside.png"));
+
 
         TextureAtlas itemAtlas = new TextureAtlas("sprites/32x32/items/items.atlas");
         axe = itemAtlas.createSprite("axe");
@@ -83,6 +96,16 @@ public class Assets {
         deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
 
         overtureLoop = Gdx.audio.newMusic(Gdx.files.internal("Audio/Music/overtureLoop.ogg"));
+    }
+
+    private HashMap<String, Array<Rectangle>> loadColliders() {
+        Json json = new Json();
+
+        String COLLIDERS_PATH = "models/colliders.json";
+        String jsonContent = Gdx.files.internal(COLLIDERS_PATH).readString();
+        Rooms loaded = json.fromJson(Rooms.class, jsonContent);
+
+        return loaded.getRooms();
     }
 
     public Sprite[] getAtlasSprites() {
@@ -291,6 +314,10 @@ public class Assets {
 
     public Music getOvertureLoop() {
         return overtureLoop;
+    }
+
+    public Array<Rectangle> getRoomCollider(String room) {
+        return colliders.get(room);
     }
 
     public void dispose() {

@@ -1,7 +1,7 @@
 items.png
 size: 505, 102
 format: RGBA8888
-filter: Linear, Linear
+filter: Nearest, Nearest
 repeat: none
 pma: false
 axe

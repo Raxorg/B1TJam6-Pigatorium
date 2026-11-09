@@ -32,6 +32,10 @@ public class Stuff {
 
     public Stuff(Assets assets) {
         pig = new Pig(assets.getAtlasSprites());
+        pig.setPosition(
+            (320 - pig.getWidth()) / 2f,
+            (320 - pig.getHeight()) / 2f
+        );
         roomDataMap = new EnumMap<>(RoomEnum.class);
         populateRoomDataMap(assets);
         connectRooms();
@@ -43,15 +47,15 @@ public class Stuff {
     }
 
     private void populateRoomDataMap(Assets assets) {
-        roomDataMap.put(KITCHEN, new RoomData("KITCHEN", assets.getKitchen()));
-        roomDataMap.put(MESS_HALL, new RoomData("MESS HALL", assets.getMessHall()));
-        roomDataMap.put(HALLWAY, new RoomData("HALLWAY", assets.getHallway()));
-        roomDataMap.put(SHRINE, new RoomData("THE SHRINE", assets.getShrine()));
-        roomDataMap.put(LIBRARY, new RoomData("LIBRARY", assets.getLibrary()));
-        roomDataMap.put(CHURCH, new RoomData("CHURCH", assets.getChurch()));
-        roomDataMap.put(GARDEN, new RoomData("GARDEN", assets.getGarden()));
-        roomDataMap.put(OUTSIDE, new RoomData("OUTSIDE", assets.getOutside()));
-        roomDataMap.put(GRASS, new RoomData("GRASS OF DOOM", assets.getGrass()));
+        roomDataMap.put(KITCHEN, new RoomData("KITCHEN", assets.getKitchen(), assets.getRoomCollider("kitchen")));
+        roomDataMap.put(MESS_HALL, new RoomData("MESS HALL", assets.getMessHall(), assets.getRoomCollider("messhall")));
+        roomDataMap.put(HALLWAY, new RoomData("HALLWAY", assets.getHallway(), assets.getRoomCollider("hallway")));
+        roomDataMap.put(SHRINE, new RoomData("THE SHRINE", assets.getShrine(), assets.getRoomCollider("shrine")));
+        roomDataMap.put(LIBRARY, new RoomData("LIBRARY", assets.getLibrary(), assets.getRoomCollider("library")));
+        roomDataMap.put(CHURCH, new RoomData("CHURCH", assets.getChurch(), assets.getRoomCollider("church")));
+        roomDataMap.put(GARDEN, new RoomData("GARDEN", assets.getGarden(), assets.getRoomCollider("garden")));
+        roomDataMap.put(OUTSIDE, new RoomData("OUTSIDE", assets.getOutside(), assets.getRoomCollider("outside")));
+        roomDataMap.put(GRASS, new RoomData("GRASS OF DOOM", assets.getGrass(), assets.getRoomCollider("grass")));
     }
 
     private void connectRooms() {
