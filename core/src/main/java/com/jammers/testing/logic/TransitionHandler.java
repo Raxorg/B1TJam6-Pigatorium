@@ -65,7 +65,11 @@ public class TransitionHandler {
     }
 
     private void setupRoom() {
-        room.set(nextRoomData);
+        if (pig.getHeldItem() != null) {
+            room.getItems().removeValue(pig.getHeldItem(), true);
+            nextRoomData.getItems().add(pig.getHeldItem());
+        }
+        room.setData(nextRoomData);
         switch (transitionDirection) {
             case LEFT:
                 pig.setX(GAME_WIDTH - pig.getWidth());

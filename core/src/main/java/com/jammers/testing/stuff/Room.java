@@ -11,7 +11,7 @@ public class Room {
         this.roomData = roomData;
     }
 
-    public void set(RoomData roomData) {
+    public void setData(RoomData roomData) {
         this.roomData = roomData;
     }
 
