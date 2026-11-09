@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.jammers.testing.Assets;
 import com.jammers.testing.stuff.Item;
 import com.jammers.testing.stuff.Pig;
+import com.jammers.testing.stuff.Room;
 import com.jammers.testing.stuff.RoomData;
 import com.jammers.testing.stuff.Stuff;
 
@@ -12,6 +13,7 @@ public class ShrineHandler {
 
     private final SacrificeHandler sacrificeHandler;
     private final Pig pig;
+    private final Room room;
     private final RoomData shrineData;
     private final Vector2 shrineCenter, pigCenter;
     private final Sprite shrine, activeShrine;
@@ -20,6 +22,7 @@ public class ShrineHandler {
     public ShrineHandler(SacrificeHandler sacrificeHandler, Assets assets, Stuff stuff) {
         this.sacrificeHandler = sacrificeHandler;
         pig = stuff.getPig();
+        room = stuff.getRoom();
         shrineData = stuff.getShrineRoomData();
         stuff.getInfoPanel().getRoomLabel().setText(shrineData.getName());
         Sprite background = shrineData.getBackground();
@@ -31,7 +34,7 @@ public class ShrineHandler {
         pigCenter = new Vector2();
         shrine = assets.getShrine();
         activeShrine = assets.getShrineActive();
-        shrineActive  = false;
+        shrineActive = false;
     }
 
     public void update() {
@@ -50,6 +53,7 @@ public class ShrineHandler {
     }
 
     public void itemDropped(Item item) {
+        if (room.getRoomData() != shrineData) return;
         if (shrineActive) sacrificeHandler.sacrifice(item);
     }
 }
