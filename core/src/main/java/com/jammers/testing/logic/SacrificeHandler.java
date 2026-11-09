@@ -20,6 +20,10 @@ public class SacrificeHandler {
         System.out.println("Item Value: " + item.value + " New Favor: " + favor);
     }
 
+    public void addFavor(int amount) {
+        favor += amount;
+    }
+
     public int getFavor() {
         return favor;
     }

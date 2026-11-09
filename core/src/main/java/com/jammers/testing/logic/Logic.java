@@ -25,7 +25,7 @@ public class Logic {
         dialogHandler = new DialogHandler(stuff);
         JudgementHandler judgementHandler = new JudgementHandler(dialogHandler, assets, stuff);
         timerHandler = new TimerHandler(judgementHandler, stuff);
-        testHandler = new TestHandler(dialogHandler, timerHandler);
+        testHandler = new TestHandler(dialogHandler, timerHandler, sacrificeHandler);
         new ItemSpawner(assets, stuff);
         assets.getOvertureLoop().setLooping(true);
         assets.getOvertureLoop().play();
