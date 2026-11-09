@@ -27,14 +27,14 @@ public class ItemSpawner {
     private void populateItemData(Assets assets) {
         itemDataStack.add(new ItemData(assets.getAxe(), 11, "AN AXE"));
         itemDataStack.add(new ItemData(assets.getBook(), 6, "A BOOK"));
-        itemDataStack.add(new ItemData(assets.getBread(), -7, "BREAD"));
+        itemDataStack.add(new ItemData(assets.getBread(), -9, "BREAD"));
         itemDataStack.add(new ItemData(assets.getCandle(), 7, "A CANDLE"));
         itemDataStack.add(new ItemData(assets.getChalice(), 15, "A CHALICE"));
         itemDataStack.add(new ItemData(assets.getComedy(), 6, "COMEDY"));
         itemDataStack.add(new ItemData(assets.getCrown(), 13, "A CROWN"));
         itemDataStack.add(new ItemData(assets.getDice(), 5, "A DICE"));
-        itemDataStack.add(new ItemData(assets.getFeather(), -3, "A FEATHER"));
-        itemDataStack.add(new ItemData(assets.getFork(), -4, "A FORK"));
+        itemDataStack.add(new ItemData(assets.getFeather(), -6, "A FEATHER"));
+        itemDataStack.add(new ItemData(assets.getFork(), -6, "A FORK"));
         itemDataStack.add(new ItemData(assets.getGem(), 14, "A GEM"));
         itemDataStack.add(new ItemData(assets.getGrapes(), 13, "GRAPES"));
         itemDataStack.add(new ItemData(assets.getJewel(), 14, "A JEWEL"));
@@ -43,15 +43,15 @@ public class ItemSpawner {
         itemDataStack.add(new ItemData(assets.getLyre(), 9, "A LYRE"));
         itemDataStack.add(new ItemData(assets.getMace(), 8, "A MACE"));
         itemDataStack.add(new ItemData(assets.getNecklace(), 12, "A NECKLACE"));
-        itemDataStack.add(new ItemData(assets.getPaper(), -6, "A PAPER"));
-        itemDataStack.add(new ItemData(assets.getPear(), -3, "A PEAR"));
+        itemDataStack.add(new ItemData(assets.getPaper(), -8, "A PAPER"));
+        itemDataStack.add(new ItemData(assets.getPear(), -6, "A PEAR"));
         itemDataStack.add(new ItemData(assets.getPotion(), 12, "A POTION"));
         itemDataStack.add(new ItemData(assets.getScales(), 5, "SCALES"));
         itemDataStack.add(new ItemData(assets.getScroll(), 6, "A SCROLL"));
-        itemDataStack.add(new ItemData(assets.getSpanner(), -4, "A SPANNER"));
-        itemDataStack.add(new ItemData(assets.getSpoon(), -4, "A SPOON"));
+        itemDataStack.add(new ItemData(assets.getSpanner(), -6, "A SPANNER"));
+        itemDataStack.add(new ItemData(assets.getSpoon(), -6, "A SPOON"));
         itemDataStack.add(new ItemData(assets.getSword(), 11, "A SWORD"));
-        itemDataStack.add(new ItemData(assets.getTeapot(), -7, "A TEAPOT"));
+        itemDataStack.add(new ItemData(assets.getTeapot(), -9, "A TEAPOT"));
         itemDataStack.add(new ItemData(assets.getTragedy(), 13, "TRAGEDY"));
         itemDataStack.add(new ItemData(assets.getVial(), 9, "A VIAL"));
         itemDataStack.add(new ItemData(assets.getWine(), 15, "WINE"));
