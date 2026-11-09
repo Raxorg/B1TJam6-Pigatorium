@@ -19,8 +19,43 @@ public class ItemSpawner {
     public ItemSpawner(Assets assets, Stuff stuff) {
         itemDataStack = new Stack<>();
         populateItemData(assets);
-        EnumMap<RoomEnum, RoomData> roomDataMap = stuff.getRoomDataMap();
+        spawnItems(assets, stuff.getRoomDataMap());
+    }
 
+    private void populateItemData(Assets assets) {
+        itemDataStack.add(new ItemData(assets.getAxe(), randomValue(), "AN AXE"));
+        itemDataStack.add(new ItemData(assets.getBook(), randomValue(), "A BOOK"));
+        itemDataStack.add(new ItemData(assets.getBread(), randomValue(), "BREAD"));
+        itemDataStack.add(new ItemData(assets.getCandle(), randomValue(), "A CANDLE"));
+        itemDataStack.add(new ItemData(assets.getChalice(), randomValue(), "A CHALICE"));
+        itemDataStack.add(new ItemData(assets.getComedy(), randomValue(), "COMEDY"));
+        itemDataStack.add(new ItemData(assets.getCrown(), randomValue(), "A CROWN"));
+        itemDataStack.add(new ItemData(assets.getDice(), randomValue(), "A DICE"));
+        itemDataStack.add(new ItemData(assets.getFeather(), randomValue(), "A FEATHER"));
+        itemDataStack.add(new ItemData(assets.getFork(), randomValue(), "A FORK"));
+        itemDataStack.add(new ItemData(assets.getGem(), randomValue(), "A GEM"));
+        itemDataStack.add(new ItemData(assets.getGrapes(), randomValue(), "GRAPES"));
+        itemDataStack.add(new ItemData(assets.getJewel(), randomValue(), "A JEWEL"));
+        itemDataStack.add(new ItemData(assets.getJug(), randomValue(), "A JUG"));
+        itemDataStack.add(new ItemData(assets.getKnife(), randomValue(), "A KNIFE"));
+        itemDataStack.add(new ItemData(assets.getLyre(), randomValue(), "A LYRE"));
+        itemDataStack.add(new ItemData(assets.getMace(), randomValue(), "A MACE"));
+        itemDataStack.add(new ItemData(assets.getNecklace(), randomValue(), "A NECKLACE"));
+        itemDataStack.add(new ItemData(assets.getPaper(), randomValue(), "A PAPER"));
+        itemDataStack.add(new ItemData(assets.getPear(), randomValue(), "A PEAR"));
+        itemDataStack.add(new ItemData(assets.getPotion(), randomValue(), "A POTION"));
+        itemDataStack.add(new ItemData(assets.getScales(), randomValue(), "SCALES"));
+        itemDataStack.add(new ItemData(assets.getScroll(), randomValue(), "A SCROLL"));
+        itemDataStack.add(new ItemData(assets.getSpanner(), randomValue(), "A SPANNER"));
+        itemDataStack.add(new ItemData(assets.getSpoon(), randomValue(), "A SPOON"));
+        itemDataStack.add(new ItemData(assets.getSword(), randomValue(), "A SWORD"));
+        itemDataStack.add(new ItemData(assets.getTeapot(), randomValue(), "A TEAPOT"));
+        itemDataStack.add(new ItemData(assets.getTragedy(), randomValue(), "TRAGEDY"));
+        itemDataStack.add(new ItemData(assets.getVial(), randomValue(), "A VIAL"));
+        itemDataStack.add(new ItemData(assets.getWine(), randomValue(), "WINE"));
+    }
+
+    private void spawnItems(Assets assets, EnumMap<RoomEnum, RoomData> roomDataMap) {
         DelayedRemovalArray<Item> kitchenItems = roomDataMap.get(RoomEnum.KITCHEN).getItems();
         kitchenItems.add(new Item(assets.getAxe(), 140, 300, randomValue(), "AN AXE"));
         kitchenItems.add(new Item(assets.getBook(), 140, 110, randomValue(), "A BOOK"));
@@ -80,39 +115,6 @@ public class ItemSpawner {
         grassItems.add(new Item(assets.getPaper(), 170, 143, randomValue(), "A PAPER"));
         grassItems.add(new Item(assets.getPear(), 275, 215, randomValue(), "A PEAR"));
         grassItems.add(new Item(assets.getPotion(), 307, 300, randomValue(), "A POTION"));
-    }
-
-    private void populateItemData(Assets assets) {
-        itemDataStack.add(new ItemData(assets.getAxe(), randomValue(), "AN AXE"));
-        itemDataStack.add(new ItemData(assets.getBook(), randomValue(), "A BOOK"));
-        itemDataStack.add(new ItemData(assets.getBread(), randomValue(), "BREAD"));
-        itemDataStack.add(new ItemData(assets.getCandle(), randomValue(), "A CANDLE"));
-        itemDataStack.add(new ItemData(assets.getChalice(), randomValue(), "A CHALICE"));
-        itemDataStack.add(new ItemData(assets.getComedy(), randomValue(), "COMEDY"));
-        itemDataStack.add(new ItemData(assets.getCrown(), randomValue(), "A CROWN"));
-        itemDataStack.add(new ItemData(assets.getDice(), randomValue(), "A DICE"));
-        itemDataStack.add(new ItemData(assets.getFeather(), randomValue(), "A FEATHER"));
-        itemDataStack.add(new ItemData(assets.getFork(), randomValue(), "A FORK"));
-        itemDataStack.add(new ItemData(assets.getGem(), randomValue(), "A GEM"));
-        itemDataStack.add(new ItemData(assets.getGrapes(), randomValue(), "GRAPES"));
-        itemDataStack.add(new ItemData(assets.getJewel(), randomValue(), "A JEWEL"));
-        itemDataStack.add(new ItemData(assets.getJug(), randomValue(), "A JUG"));
-        itemDataStack.add(new ItemData(assets.getKnife(), randomValue(), "A KNIFE"));
-        itemDataStack.add(new ItemData(assets.getLyre(), randomValue(), "A LYRE"));
-        itemDataStack.add(new ItemData(assets.getMace(), randomValue(), "A MACE"));
-        itemDataStack.add(new ItemData(assets.getNecklace(), randomValue(), "A NECKLACE"));
-        itemDataStack.add(new ItemData(assets.getPaper(), randomValue(), "A PAPER"));
-        itemDataStack.add(new ItemData(assets.getPear(), randomValue(), "A PEAR"));
-        itemDataStack.add(new ItemData(assets.getPotion(), randomValue(), "A POTION"));
-        itemDataStack.add(new ItemData(assets.getScales(), randomValue(), "SCALES"));
-        itemDataStack.add(new ItemData(assets.getScroll(), randomValue(), "A SCROLL"));
-        itemDataStack.add(new ItemData(assets.getSpanner(), randomValue(), "A SPANNER"));
-        itemDataStack.add(new ItemData(assets.getSpoon(), randomValue(), "A SPOON"));
-        itemDataStack.add(new ItemData(assets.getSword(), randomValue(), "A SWORD"));
-        itemDataStack.add(new ItemData(assets.getTeapot(), randomValue(), "A TEAPOT"));
-        itemDataStack.add(new ItemData(assets.getTragedy(), randomValue(), "TRAGEDY"));
-        itemDataStack.add(new ItemData(assets.getVial(), randomValue(), "A VIAL"));
-        itemDataStack.add(new ItemData(assets.getWine(), randomValue(), "WINE"));
     }
 
     private int randomValue() {
