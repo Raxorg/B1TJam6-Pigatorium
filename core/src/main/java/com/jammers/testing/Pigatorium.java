@@ -14,9 +14,9 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.jammers.testing.logic.Logic;
-import com.jammers.testing.stuff.Stuff;
 import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.RoomData;
+import com.jammers.testing.stuff.Stuff;
 
 public class Pigatorium extends ApplicationAdapter {
 
@@ -65,6 +65,7 @@ public class Pigatorium extends ApplicationAdapter {
         stuff.getInfoPanel().draw(spriteBatch);
         stuff.getJudgementScreen().draw(spriteBatch);
         stuff.getDialog().draw(spriteBatch);
+        stuff.getFader().draw(spriteBatch);
         spriteBatch.end();
 
         if (showCollisions) {

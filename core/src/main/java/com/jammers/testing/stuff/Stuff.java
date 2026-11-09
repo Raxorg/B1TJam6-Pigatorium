@@ -1,5 +1,8 @@
 package com.jammers.testing.stuff;
 
+import static com.badlogic.gdx.graphics.Color.CLEAR;
+import static com.jammers.testing.Constants.GAME_HEIGHT;
+import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.stuff.Direction.DOWN;
 import static com.jammers.testing.stuff.Direction.LEFT;
 import static com.jammers.testing.stuff.Direction.RIGHT;
@@ -29,6 +32,7 @@ public class Stuff {
     private final Dialog dialog;
     private final JudgementScreen judgementScreen;
     private final EnumMap<RoomEnum, RoomData> roomDataMap;
+    private final Sprite fader;
 
     public Stuff(Assets assets) {
         pig = new Pig(assets.getAtlasSprites());
@@ -44,6 +48,10 @@ public class Stuff {
         arrows = new Array<>();
         dialog = new Dialog(assets.getPixel(), assets.getDetermination(), assets.getGod());
         judgementScreen = new JudgementScreen(assets);
+
+        fader = new Sprite(assets.getPixel());
+        fader.setSize(GAME_WIDTH, GAME_HEIGHT);
+        fader.setColor(CLEAR);
     }
 
     private void populateRoomDataMap(Assets assets) {
@@ -121,5 +129,9 @@ public class Stuff {
 
     public EnumMap<RoomEnum, RoomData> getRoomDataMap() {
         return roomDataMap;
+    }
+
+    public Sprite getFader() {
+        return fader;
     }
 }
