@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 public class Assets {
 
     private final Sprite[] atlasSprites;
-    private final Sprite shrine, shrineActive, church;
+    private final Sprite shrine, shrineActive, church, garden, grass, hallway, kitchen, library, messHall, outside;
     private final Sprite book;
     private final Sprite pixel, god, god2, arrow, home;
     private final Sprite judgement;
@@ -24,6 +24,13 @@ public class Assets {
         shrine = new Sprite(new Texture("raw/shrine-2.png"));
         shrineActive = new Sprite(new Texture("raw/shrineActive.png"));
         church = new Sprite(new Texture("raw/church.png"));
+        garden = new Sprite(new Texture("sprites/320x320/map/garden.png"));
+        grass = new Sprite(new Texture("sprites/320x320/map/grass.png"));
+        hallway = new Sprite(new Texture("sprites/320x320/map/hallway.png"));
+        kitchen = new Sprite(new Texture("sprites/320x320/map/kitchen.png"));
+        library = new Sprite(new Texture("sprites/320x320/map/library.png"));
+        messHall = new Sprite(new Texture("sprites/320x320/map/messHall.png"));
+        outside = new Sprite(new Texture("sprites/320x320/map/outside.png"));
 
         TextureAtlas itemAtlas = new TextureAtlas("sprites/32x32/items/items.atlas");
         book = itemAtlas.createSprite("book");
@@ -57,6 +64,34 @@ public class Assets {
 
     public Sprite getChurch() {
         return church;
+    }
+
+    public Sprite getGarden() {
+        return garden;
+    }
+
+    public Sprite getGrass() {
+        return grass;
+    }
+
+    public Sprite getHallway() {
+        return hallway;
+    }
+
+    public Sprite getKitchen() {
+        return kitchen;
+    }
+
+    public Sprite getLibrary() {
+        return library;
+    }
+
+    public Sprite getMessHall() {
+        return messHall;
+    }
+
+    public Sprite getOutside() {
+        return outside;
     }
 
     public Sprite getBook() {

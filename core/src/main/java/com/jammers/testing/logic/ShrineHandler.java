@@ -1,5 +1,7 @@
 package com.jammers.testing.logic;
 
+import static com.jammers.testing.stuff.RoomEnum.SHRINE;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.jammers.testing.Assets;
@@ -23,7 +25,7 @@ public class ShrineHandler {
         this.sacrificeHandler = sacrificeHandler;
         pig = stuff.getPig();
         room = stuff.getRoom();
-        shrineData = stuff.getShrineRoomData();
+        shrineData = stuff.getRoomDataMap().get(SHRINE);
         stuff.getInfoPanel().getRoomLabel().setText(shrineData.getName());
         Sprite background = shrineData.getBackground();
         background.translateY(20f);

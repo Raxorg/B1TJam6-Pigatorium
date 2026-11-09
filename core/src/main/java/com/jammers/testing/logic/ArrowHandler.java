@@ -15,7 +15,7 @@ public class ArrowHandler {
     public ArrowHandler(Assets assets, Stuff stuff) {
         arrowSprite = assets.getArrow();
         arrows = stuff.getArrows();
-        updateArrows(stuff.getShrineRoomData());
+        updateArrows(stuff.getRoom().getRoomData());
     }
 
     public void updateArrows(RoomData roomData) {

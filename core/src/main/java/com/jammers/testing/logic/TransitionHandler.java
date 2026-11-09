@@ -1,5 +1,6 @@
 package com.jammers.testing.logic;
 
+import static com.jammers.testing.Constants.GAME_HEIGHT;
 import static com.jammers.testing.Constants.GAME_WIDTH;
 
 import com.badlogic.gdx.Gdx;
@@ -76,6 +77,12 @@ public class TransitionHandler {
                 break;
             case RIGHT:
                 pig.setX(0f);
+                break;
+            case DOWN:
+                pig.setY(GAME_HEIGHT - pig.getHeight());
+                break;
+            case UP:
+                pig.setY(0f);
                 break;
         }
         infoPanel.getRoomLabel().setText(nextRoomData.getName());
