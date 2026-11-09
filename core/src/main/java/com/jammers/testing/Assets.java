@@ -1,6 +1,7 @@
 package com.jammers.testing;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -17,6 +18,7 @@ public class Assets {
     private final Sprite judgement;
     private final BitmapFont determination;
     private final Sound pickUpSound, putDownSound, deepVoiceJudgement;
+    private final Music overtureLoop;
 
     public Assets() {
         TextureAtlas pigAtlas = new TextureAtlas("pig.atlas");
@@ -79,6 +81,8 @@ public class Assets {
         pickUpSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/pickUp.ogg"));
         putDownSound = Gdx.audio.newSound(Gdx.files.internal("Audio/SFX/putDown.ogg"));
         deepVoiceJudgement = Gdx.audio.newSound(Gdx.files.internal("Audio/VA/deepVoiceJudgement.ogg"));
+
+        overtureLoop = Gdx.audio.newMusic(Gdx.files.internal("Audio/Music/overtureLoop.ogg"));
     }
 
     public Sprite[] getAtlasSprites() {
@@ -285,6 +289,10 @@ public class Assets {
         return deepVoiceJudgement;
     }
 
+    public Music getOvertureLoop() {
+        return overtureLoop;
+    }
+
     public void dispose() {
         atlasSprites[0].getTexture().dispose();
         shrine.getTexture().dispose();
@@ -301,5 +309,6 @@ public class Assets {
         pickUpSound.dispose();
         putDownSound.dispose();
         deepVoiceJudgement.dispose();
+        overtureLoop.dispose();
     }
 }

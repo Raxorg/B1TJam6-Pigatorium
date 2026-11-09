@@ -27,6 +27,8 @@ public class Logic {
         timerHandler = new TimerHandler(judgementHandler, stuff);
         testHandler = new TestHandler(dialogHandler, timerHandler);
         new ItemSpawner(assets, stuff);
+        assets.getOvertureLoop().setLooping(true);
+        assets.getOvertureLoop().play();
     }
 
     public void update(float delta) {
