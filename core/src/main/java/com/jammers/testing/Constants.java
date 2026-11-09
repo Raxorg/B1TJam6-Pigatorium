@@ -10,7 +10,7 @@ public class Constants {
     public static final float GAME_HEIGHT = 480f;
 
     public static final int REQUIRED_FAVOR = 100;
-    public static final float MAX_SPEED = 300f;
+    public static final float MAX_SPEED = 350f;
     public static final float ACCELERATION = 1500f;
     public static final float FRICTION = 1200f;
 

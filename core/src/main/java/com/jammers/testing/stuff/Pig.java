@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.collision.BoundingBox;
 
 public class Pig {
 
@@ -16,7 +15,7 @@ public class Pig {
     private final Animation<Sprite> walkingDown;
 
     private float animTime = 0f;
-    private Direction currentDirection = Direction.RIGHT;
+    private Direction currentDirection = Direction.DOWN;
     private Item heldItem;
 
     public Pig(Sprite[] sprites) {
@@ -31,8 +30,8 @@ public class Pig {
         walkingUp = new Animation<>(0.1f, sprites[12], sprites[13], sprites[14], sprites[15]);
         walkingUp.setPlayMode(Animation.PlayMode.LOOP);
 
-        // Use frame 1 of the initial direction (DOWN, sprites[12]) as the idle sprite
-        sprite.set(sprites[12]);
+        // Start on the first frame of the downward-facing animation.
+        sprite.set(walkingDown.getKeyFrame(0f));
     }
 
     public void draw(SpriteBatch spriteBatch) {
@@ -102,7 +101,10 @@ public class Pig {
         sprite.setY(y);
     }
 
-    public void setPosition(Vector2 position) {sprite.setPosition(position.x, position.y);}
+    public void setPosition(Vector2 position) {
+        sprite.setPosition(position.x, position.y);
+    }
+
     public void setPosition(float x, float y) {
         sprite.setPosition(x, y);
     }
@@ -123,7 +125,11 @@ public class Pig {
         this.heldItem = heldItem;
     }
 
-    public Rectangle getBoundingRectangle() {return sprite.getBoundingRectangle();}
+    public Rectangle getBoundingRectangle() {
+        return sprite.getBoundingRectangle();
+    }
 
-    public Vector2 getPosition() {return new Vector2(sprite.getX(), sprite.getY());}
+    public Vector2 getPosition() {
+        return new Vector2(sprite.getX(), sprite.getY());
+    }
 }
