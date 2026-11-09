@@ -9,6 +9,7 @@ import com.jammers.testing.stuff.RoomData;
 import com.jammers.testing.stuff.RoomEnum;
 import com.jammers.testing.stuff.Stuff;
 
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Stack;
 
@@ -53,6 +54,12 @@ public class ItemSpawner {
         itemDataStack.add(new ItemData(assets.getTragedy(), randomValue(), "TRAGEDY"));
         itemDataStack.add(new ItemData(assets.getVial(), randomValue(), "A VIAL"));
         itemDataStack.add(new ItemData(assets.getWine(), randomValue(), "WINE"));
+        Collections.shuffle(itemDataStack);
+    }
+
+    private Item getItem(float x, float y) {
+        ItemData itemData = itemDataStack.pop();
+        return new Item(itemData.sprite, x, y, itemData.value, itemData.name);
     }
 
     private void spawnItems(Assets assets, EnumMap<RoomEnum, RoomData> roomDataMap) {
