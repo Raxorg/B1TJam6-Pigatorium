@@ -14,6 +14,7 @@ public class Logic {
     private final DialogHandler dialogHandler;
     private final JudgementHandler judgementHandler;
     private final TestHandler testHandler;
+    private final IntroHandler introHandler;
 
     public Logic(Assets assets, Stuff stuff) {
         ArrowHandler arrowHandler = new ArrowHandler(assets, stuff);
@@ -28,6 +29,8 @@ public class Logic {
         timerHandler = new TimerHandler(judgementHandler, stuff);
         testHandler = new TestHandler(dialogHandler, timerHandler, sacrificeHandler);
         new ItemSpawner(assets, stuff);
+        introHandler = new IntroHandler(dialogHandler);
+
         assets.getOvertureLoop().setLooping(true);
         assets.getOvertureLoop().play();
     }
@@ -41,6 +44,7 @@ public class Logic {
         shrineHandler.update();
         dialogHandler.update(delta);
         judgementHandler.update(delta);
+        introHandler.update(delta);
         if (!judgementHandler.isEndingShown()) testHandler.update();
     }
 }
