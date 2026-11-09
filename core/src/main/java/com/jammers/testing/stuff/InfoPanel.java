@@ -1,5 +1,6 @@
 package com.jammers.testing.stuff;
 
+import static com.badlogic.gdx.graphics.Color.CLEAR;
 import static com.jammers.testing.Constants.DARK_COLOR;
 import static com.jammers.testing.Constants.GAME_HEIGHT;
 import static com.jammers.testing.Constants.GAME_WIDTH;
@@ -30,8 +31,8 @@ import com.jammers.testing.Assets;
 
 public class InfoPanel {
 
-    private final Sprite background, stripe, home, timerBackground;
-    private final Text roomLabel, judgementLabel, timerText;
+    private final Sprite background, stripe, home, timerBackground, itemIcon;
+    private final Text roomLabel, judgementLabel, timerText, itemLabel;
 
     public InfoPanel(Assets assets) {
         background = new Sprite(assets.getPixel());
@@ -71,6 +72,18 @@ public class InfoPanel {
         timerText.setX(GAME_WIDTH * 0.5f - timerText.getWidth() * 0.5f);
         timerText.setY(GAME_HEIGHT - 10f);
         timerText.setColor(LIGHT_COLOR);
+
+        itemLabel = new Text(assets.getDetermination());
+        itemLabel.setPosition(INFO_BG_X, INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - 1f);
+        itemLabel.setTargetWidth(INFO_BG_WIDTH - 40f);
+        itemLabel.setVerticallyCentered(true);
+        itemLabel.hAlignRight();
+        itemLabel.setScale(1.2f);
+        itemLabel.setColor(LIGHT_COLOR);
+
+        itemIcon = new Sprite(assets.getBook());
+        itemIcon.setPosition(INFO_BG_X + INFO_BG_WIDTH - 32f, INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - 16f);
+        itemIcon.setColor(CLEAR);
     }
 
     public void draw(SpriteBatch spriteBatch) {
@@ -80,6 +93,8 @@ public class InfoPanel {
         timerBackground.draw(spriteBatch);
         roomLabel.draw(spriteBatch);
         judgementLabel.draw(spriteBatch);
+        itemLabel.draw(spriteBatch);
+        itemIcon.draw(spriteBatch);
         timerText.draw(spriteBatch);
     }
 
@@ -89,5 +104,13 @@ public class InfoPanel {
 
     public Text getTimerText() {
         return timerText;
+    }
+
+    public Sprite getItemIcon() {
+        return itemIcon;
+    }
+
+    public Text getItemLabel() {
+        return itemLabel;
     }
 }

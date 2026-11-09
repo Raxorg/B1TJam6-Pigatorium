@@ -16,7 +16,7 @@ public final class RoomData {
     private final DelayedRemovalArray<Item> items;
     private final Map<Direction, RoomData> roomMap;
 
-    public RoomData(String roomName, Sprite backgroundSprite, Item[] roomItems) {
+    public RoomData(String roomName, Sprite backgroundSprite) {
         name = roomName;
         background = new Sprite(backgroundSprite);
         background.setPosition(
@@ -24,7 +24,6 @@ public final class RoomData {
             (GAME_HEIGHT - background.getHeight()) * 0.5f
         );
         items = new DelayedRemovalArray<>();
-        items.addAll(roomItems);
         roomMap = new HashMap<>();
     }
 

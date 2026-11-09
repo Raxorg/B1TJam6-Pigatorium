@@ -1,70 +1,68 @@
 items.png
-size: 435, 32
+size: 505, 102
 format: RGBA8888
 filter: Linear, Linear
 repeat: none
 pma: false
+axe
+  bounds: 1, 35, 32, 32
 book
-  bounds: 245, 1, 24, 24
-  offsets: 5, 3, 32, 32
+  bounds: 438, 1, 32, 32
 bread
-  bounds: 219, 1, 25, 24
-  offsets: 4, 3, 32, 32
-  rotate: 90
+  bounds: 1, 69, 32, 32
 candle
-  bounds: 98, 1, 21, 27
-  offsets: 6, 3, 32, 32
+  bounds: 35, 35, 32, 32
 chalice
-  bounds: 271, 1, 23, 23
-  offsets: 5, 5, 32, 32
+  bounds: 472, 1, 32, 32
 comedy
-  bounds: 142, 1, 25, 26
-  offsets: 3, 3, 32, 32
+  bounds: 35, 69, 32, 32
 crown
-  bounds: 196, 1, 26, 21
-  offsets: 3, 4, 32, 32
-  rotate: 90
+  bounds: 69, 35, 32, 32
 dice
-  bounds: 296, 1, 23, 23
-  offsets: 5, 5, 32, 32
+  bounds: 69, 69, 32, 32
+feather
+  bounds: 103, 35, 32, 32
 fork
-  bounds: 55, 1, 9, 29
-  offsets: 11, 1, 32, 32
+  bounds: 103, 69, 32, 32
 gem
-  bounds: 370, 1, 23, 19
-  offsets: 5, 6, 32, 32
-  rotate: 90
+  bounds: 137, 35, 32, 32
 grapes
-  bounds: 15, 1, 29, 26
-  offsets: 2, 4, 32, 32
-  rotate: 90
+  bounds: 137, 69, 32, 32
+items
+  bounds: 1, 1, 435, 32
 jewel
-  bounds: 415, 1, 19, 19
-  offsets: 7, 7, 32, 32
+  bounds: 171, 35, 32, 32
+jug
+  bounds: 171, 69, 32, 32
 knife
-  bounds: 66, 1, 8, 29
-  offsets: 12, 1, 32, 32
+  bounds: 205, 35, 32, 32
 lyre
-  bounds: 76, 1, 20, 28
-  offsets: 6, 1, 32, 32
+  bounds: 205, 69, 32, 32
+mace
+  bounds: 239, 35, 32, 32
 necklace
-  bounds: 346, 1, 22, 23
-  offsets: 5, 6, 32, 32
+  bounds: 239, 69, 32, 32
+paper
+  bounds: 273, 35, 32, 32
 pear
-  bounds: 121, 1, 19, 27
-  offsets: 7, 3, 32, 32
+  bounds: 273, 69, 32, 32
 potion
-  bounds: 321, 1, 23, 23
-  offsets: 5, 4, 32, 32
+  bounds: 307, 35, 32, 32
+scales
+  bounds: 307, 69, 32, 32
 scroll
-  bounds: 391, 1, 22, 22
-  offsets: 7, 6, 32, 32
+  bounds: 341, 35, 32, 32
+spanner
+  bounds: 341, 69, 32, 32
 spoon
-  bounds: 43, 1, 10, 29
-  offsets: 11, 1, 32, 32
+  bounds: 375, 35, 32, 32
+sword
+  bounds: 375, 69, 32, 32
+teapot
+  bounds: 409, 35, 32, 32
 tragedy
-  bounds: 169, 1, 25, 26
-  offsets: 5, 3, 32, 32
+  bounds: 409, 69, 32, 32
+vial
+  bounds: 443, 35, 32, 32
 wine
-  bounds: 1, 1, 12, 30
-  offsets: 10, 2, 32, 32
+  bounds: 443, 69, 32, 32

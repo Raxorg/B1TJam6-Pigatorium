@@ -3,14 +3,16 @@ package com.jammers.testing.stuff;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Item {
+public final class Item {
 
     private final Sprite sprite;
     public final int value;
+    public final String name;
 
-    public Item(Sprite sprite, int value) {
+    public Item(Sprite sprite, int value, String name) {
         this.sprite = sprite;
         this.value = value;
+        this.name = name;
     }
 
     public void draw(SpriteBatch spriteBatch) {
@@ -35,5 +37,9 @@ public class Item {
 
     public float getHeight() {
         return sprite.getHeight();
+    }
+
+    public Sprite getSprite() {
+        return sprite;
     }
 }
