@@ -2,8 +2,6 @@ package com.jammers.testing.stuff;
 
 import static com.badlogic.gdx.graphics.Color.CLEAR;
 import static com.jammers.testing.Constants.DARK_COLOR;
-import static com.jammers.testing.Constants.GAME_HEIGHT;
-import static com.jammers.testing.Constants.GAME_WIDTH;
 import static com.jammers.testing.Constants.INFO_BG_HEIGHT;
 import static com.jammers.testing.Constants.INFO_BG_WIDTH;
 import static com.jammers.testing.Constants.INFO_BG_X;
@@ -15,15 +13,19 @@ import static com.jammers.testing.Constants.INFO_STRIPE_HEIGHT;
 import static com.jammers.testing.Constants.INFO_STRIPE_WIDTH;
 import static com.jammers.testing.Constants.INFO_STRIPE_X;
 import static com.jammers.testing.Constants.INFO_STRIPE_Y;
+import static com.jammers.testing.Constants.JUDGEMENT_BG_HEIGHT;
+import static com.jammers.testing.Constants.JUDGEMENT_BG_WIDTH;
+import static com.jammers.testing.Constants.JUDGEMENT_BG_X;
+import static com.jammers.testing.Constants.JUDGEMENT_BG_Y;
 import static com.jammers.testing.Constants.JUDGEMENT_LABEL_X;
 import static com.jammers.testing.Constants.JUDGEMENT_LABEL_Y;
 import static com.jammers.testing.Constants.LIGHT_COLOR;
 import static com.jammers.testing.Constants.ROOM_LABEL_X;
 import static com.jammers.testing.Constants.ROOM_LABEL_Y;
-import static com.jammers.testing.Constants.TIMER_BG_HEIGHT;
-import static com.jammers.testing.Constants.TIMER_BG_WIDTH;
-import static com.jammers.testing.Constants.TIMER_BG_X;
-import static com.jammers.testing.Constants.TIMER_BG_Y;
+import static com.jammers.testing.Constants.TIMER_SCALE;
+import static com.jammers.testing.Constants.TIMER_TARGET_WIDTH;
+import static com.jammers.testing.Constants.TIMER_X;
+import static com.jammers.testing.Constants.TIMER_Y;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -31,7 +33,7 @@ import com.jammers.testing.Assets;
 
 public class InfoPanel {
 
-    private final Sprite background, stripe, home, timerBackground, itemIcon;
+    private final Sprite background, stripe, home, judgementBackground, itemIcon;
     private final Text roomLabel, judgementLabel, timerText, itemLabel;
 
     public InfoPanel(Assets assets) {
@@ -49,10 +51,10 @@ public class InfoPanel {
         home.setPosition(INFO_HOME_X, INFO_HOME_Y);
         home.setSize(INFO_HOME_SIZE, INFO_HOME_SIZE);
 
-        timerBackground = new Sprite(assets.getPixel());
-        timerBackground.setPosition(TIMER_BG_X, TIMER_BG_Y);
-        timerBackground.setSize(TIMER_BG_WIDTH, TIMER_BG_HEIGHT);
-        timerBackground.setColor(DARK_COLOR);
+        judgementBackground = new Sprite(assets.getPixel());
+        judgementBackground.setPosition(JUDGEMENT_BG_X, JUDGEMENT_BG_Y);
+        judgementBackground.setSize(JUDGEMENT_BG_WIDTH, JUDGEMENT_BG_HEIGHT);
+        judgementBackground.setColor(DARK_COLOR);
 
         roomLabel = new Text(assets.getDetermination());
         roomLabel.setPosition(ROOM_LABEL_X, ROOM_LABEL_Y);
@@ -64,14 +66,17 @@ public class InfoPanel {
         judgementLabel.setPosition(JUDGEMENT_LABEL_X, JUDGEMENT_LABEL_Y);
         judgementLabel.hAlignCenter();
         judgementLabel.setVerticallyCentered(true);
-        judgementLabel.setScale(1.2f);
+        judgementLabel.setScale(1.05f);
         judgementLabel.setColor(LIGHT_COLOR);
         judgementLabel.setTargetWidth(INFO_BG_WIDTH);
 
-        timerText = new Text(assets.getDetermination(), "00:00");
-        timerText.setX(GAME_WIDTH * 0.5f - timerText.getWidth() * 0.5f);
-        timerText.setY(GAME_HEIGHT - 10f);
+        timerText = new Text(assets.getDetermination(), "03:00");
+        timerText.setPosition(TIMER_X, TIMER_Y);
+        timerText.setVerticallyCentered(true);
+        timerText.hAlignCenter();
+        timerText.setScale(TIMER_SCALE);
         timerText.setColor(LIGHT_COLOR);
+        timerText.setTargetWidth(TIMER_TARGET_WIDTH);
 
         itemLabel = new Text(assets.getDetermination());
         itemLabel.setPosition(INFO_BG_X, INFO_BG_Y + INFO_BG_HEIGHT * 0.5f - 1f);
@@ -90,7 +95,7 @@ public class InfoPanel {
         background.draw(spriteBatch);
         stripe.draw(spriteBatch);
         home.draw(spriteBatch);
-        timerBackground.draw(spriteBatch);
+        judgementBackground.draw(spriteBatch);
         roomLabel.draw(spriteBatch);
         judgementLabel.draw(spriteBatch);
         itemLabel.draw(spriteBatch);

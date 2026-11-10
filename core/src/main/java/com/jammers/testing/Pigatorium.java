@@ -1,5 +1,10 @@
 package com.jammers.testing;
 
+import static com.badlogic.gdx.Input.Keys.DOWN;
+import static com.badlogic.gdx.Input.Keys.LEFT;
+import static com.badlogic.gdx.Input.Keys.RIGHT;
+import static com.badlogic.gdx.Input.Keys.SPACE;
+import static com.badlogic.gdx.Input.Keys.UP;
 import static com.jammers.testing.Constants.DARK_COLOR;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -12,7 +17,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.jammers.testing.logic.Logic;
 import com.jammers.testing.stuff.Pig;
 import com.jammers.testing.stuff.RoomData;
@@ -21,7 +26,7 @@ import com.jammers.testing.stuff.Stuff;
 public class Pigatorium extends ApplicationAdapter {
 
     private OrthographicCamera camera;
-    private ExtendViewport viewport;
+    private FitViewport viewport;
     private SpriteBatch spriteBatch;
     private ShapeRenderer collisionRenderer;
     private boolean showCollisions;
@@ -33,13 +38,17 @@ public class Pigatorium extends ApplicationAdapter {
     @Override
     public void create() {
         camera = new OrthographicCamera();
-        viewport = new ExtendViewport(480, 480, camera);
+        viewport = new FitViewport(480, 480, camera);
         spriteBatch = new SpriteBatch();
         collisionRenderer = new ShapeRenderer();
         assets = new Assets();
         stuff = new Stuff(assets);
         logic = new Logic(assets, stuff);
-
+        Gdx.input.setCatchKey(UP, true);
+        Gdx.input.setCatchKey(DOWN, true);
+        Gdx.input.setCatchKey(LEFT, true);
+        Gdx.input.setCatchKey(RIGHT, true);
+        Gdx.input.setCatchKey(SPACE, true);
     }
 
     @Override

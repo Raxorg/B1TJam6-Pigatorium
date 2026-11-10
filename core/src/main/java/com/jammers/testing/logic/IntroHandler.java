@@ -34,6 +34,7 @@ public class IntroHandler {
         if (timeAfterText >= DISPLAY_TIME_AFTER_TEXT) {
             dialogHandler.hideDialog();
             assets.getOvertureLoop().setLooping(true);
+            assets.getOvertureLoop().setVolume(0.65f);
             assets.getOvertureLoop().play();
             blocking = false;
         }

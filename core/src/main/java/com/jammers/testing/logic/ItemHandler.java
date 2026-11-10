@@ -43,7 +43,8 @@ public class ItemHandler {
     }
 
     private void handleInput() {
-        if (!Gdx.input.isKeyJustPressed(Input.Keys.E)) return;
+        if (!Gdx.input.isKeyJustPressed(Input.Keys.E) && !(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)))
+            return;
 
         if (pig.getHeldItem() == null) {
             // Try to pick up an item
